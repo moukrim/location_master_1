@@ -50,16 +50,16 @@ require '_header.php';
 
 <?php
 $ids=array_keys($_SESSION['panier']);
-//unset($_SESSION['panier'][2]);
+
+//unset($_SESSION['panier'][1]);
+//unset($_SESSION['panier'][3]);
 if(!empty($ids)){
 $comma_separated = implode(",", $ids);
 
 $sql = "SELECT * FROM vehicule WHERE id IN ($comma_separated)";
 //exécution de la requête SQL
 $produits = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
-while($res=mysql_fetch_object($produits)){
-//var_dump($res->type);
-}
+
 }
 else
 die('empty!!!');
@@ -78,25 +78,35 @@ die('empty!!!');
                         <div class="wrap">
 
                           <div class="rowtitle">
-                            <span class="name">Product name</span>
+                            <span class="name">Nom de Produit</span>
                             <span class="price">Price</span>
-                            <span class="quantity">Quantity</span>
+                            <span class="quantity">KMs</span>
                             <span class="subtotal">Prix avec TVA</span>
                             <span class="action">Actions</span>
                           </div>
 
-                     
+                      
+
+                        <?php
+                          while($res=mysql_fetch_array($produits)){
+                        echo('
                           <div class="row1">
-                            <a href="#" class="img"> <img src="img/1.jpg" height="53"></a>
-                            <span class="name">coucou</span>
-                            <span class="price">1500,00 €</span>
-                            <span class="quantity"><input type="text"></span>
+                        
+                            <a href="#" class="img"> <img src='.$res['image'].' height="53"></a>
+                            <span class="name">'.$res['marque'].'</span>
+                            <span class="price">'.$res['prix'].' €</span>
+                            <span class="quantity"><input class="input_km" type="text" style="text-align:center" value='.$_SESSION['panier'][$res['id']].'></span>
                             <span class="subtotal">15500 €</span>
                             <span class="action">
-                              <a href="#" class="del"><img src="img/del.png"></a>
+                              <a href="panier.php?delPanier='.$res['id'].'" class="del"><img src="img/del.png"></a>
                             </span>
-                          </div>
+                            </div>
+                            ');}
+                            ?>
+                          
                      
+
+                      
                           <div class="rowtotal">
                             Grand Total : <span class="total">1205205 € </span>
                           </div>

@@ -129,16 +129,17 @@ $marque=$_POST['marque'];
                               Gift
                             </a>
                             <div class="rating">
-                              <span>Rating :</span>
-                              <ul>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#" class="off">5</a></li>
-                              </ul>
+                              <span>Etat :</span>
+                              <ul>');
+                              $datetime1 = new DateTime(date("Y-m-d"));
+                              $datetime2 = new DateTime($res['finLoc']);
+                              $interval = $datetime1->diff($datetime2);
+                              $resultat=$interval->format('%a');
+                              if($resultat>=0) {echo('<li>DISPONIBLE</li>');} 
+                              else {echo('<li>LOUE</li>');}  
+                             echo('  </ul>
                             </div>
-                            <a class="add" href="addpanier.php?id='.$res['id'].'">
+                            <a class="add addPanier" href="addpanier.php?id='.$res['id'].'">
                               add
                             </a>
                           </div>
@@ -180,6 +181,6 @@ $marque=$_POST['marque'];
 
 
 
-
+<script type="text/javascript" src="bootstrap/js/ajout-panier.js"></script>
 </body>
 </html>
