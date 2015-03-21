@@ -1,5 +1,17 @@
-#row{padding-top: 60px;}
+/*#row{padding-top: 60px;}*/
 
+
+.loader {
+
+position : fixed;
+z-index: 9999;
+background : url('img/load.jpg') 50% 50% no-repeat;
+top : 0px;
+left : 0px;
+height : 100%;
+width : 100%;
+cursor : wait;
+}
 
 .adaptar{
 width: 100%;
@@ -13,6 +25,10 @@ footer{
 
 padding-top: 30px;
 
+}
+
+.textErreur{
+    color: red;
 }
 
 #form-inline{

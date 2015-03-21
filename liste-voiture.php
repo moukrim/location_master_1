@@ -1,7 +1,7 @@
 <?php
-
 require '_header.php';
 ?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -10,8 +10,15 @@ require '_header.php';
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="bootstrap/css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <link rel="stylesheet" href="bootstrap/jqwidgets/styles/jqx.base.css" type="text/css"/>
+  <script type="text/javascript" src="bootstrap/scripts/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="bootstrap/scripts/demos.js"></script>
+  <script type="text/javascript" src="bootstrap/jqwidgets/jqxcore.js"></script>
+  <script type="text/javascript" src="bootstrap/jqwidgets/jqxdatetimeinput.js"></script>
+  <script type="text/javascript" src="bootstrap/jqwidgets/jqxcalendar.js"></script>
+  <script type="text/javascript" src="bootstrap/jqwidgets/jqxtooltip.js"></script>
+  <script type="text/javascript" src="bootstrap/jqwidgets/globalization/globalize.js"></script>
   </head>
 
   <body background="image/bg.jpg">
@@ -19,26 +26,13 @@ require '_header.php';
 
 <?php 
 
-if(isset($_POST['type']) && isset($_POST['marque']) ){
 
-$type=$_POST['type'];
-$marque=$_POST['marque'];
-
- $cnx = @mysql_connect('localhost', 'root', '') ;
- //sélection de la base de données
- $db  = mysql_select_db('location') ;
- 
- //création de la requête SQL
- $sql = "SELECT * FROM vehicule WHERE type='$type' AND marque='$marque'	 ";
- //exécution de la requête SQL
-  $requete = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
-
-
-
-}
+require 'renvoi-voiture.php';
+ echo ('<input type="hidden"  id="num_test" value="'.$_POST['type'].'"/>');
+ echo ('<input type="hidden"  id="num_test1" value="'.$_POST['marque'].'"/>');
 
 ?>
-   
+   <div class="loader" ></div>
       <header class="row col-sm-12" >
         <div class="navbar navbar-default navbar-fixed-top" style="background-color:#BBE1D7 ;">
 				 
@@ -71,10 +65,9 @@ $marque=$_POST['marque'];
 			<div class="row ">
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
-            <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-pencil"></span> LOGIN </a> </li>
+            <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
+            <li> <a href="log-sign.html"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-star-empty"></span> Les plus louées </a> </li>
           
           </ul>
 		  </nav>
@@ -115,6 +108,7 @@ $marque=$_POST['marque'];
                   while($res=mysql_fetch_array($requete)){
      
                 echo(' 
+                     <div id="'.$res["id"].'" style="margin-left: auto; margin-right: auto;"></div>
                       <div class="wrap">
                         <div class="box">
                           <div class="product full">
@@ -125,19 +119,12 @@ $marque=$_POST['marque'];
                               '.$res['type'].', <strong>'.$res['marque'].' :</strong>
                               <a href="#" class="price">'.$res['prix'].' €/Km</a>
                             </div>
-                            <a href="#" class="gift">
-                              Gift
+                            <a href="#" id="cal'.$res["id"].'" class="gift">
+                              
                             </a>
                             <div class="rating">
                               <span>Etat :</span>
-                              <ul>');
-                              $datetime1 = new DateTime(date("Y-m-d"));
-                              $datetime2 = new DateTime($res['finLoc']);
-                              $interval = $datetime1->diff($datetime2);
-                              $resultat=$interval->format('%a');
-                              if($resultat>=0) {echo('<li>DISPONIBLE</li>');} 
-                              else {echo('<li>LOUE</li>');}  
-                             echo('  </ul>
+                             
                             </div>
                             <a class="add addPanier" href="addpanier.php?id='.$res['id'].'">
                               add
@@ -151,23 +138,6 @@ $marque=$_POST['marque'];
                     </div>
                   
                   </div>
-
-           
-                	<?php
-                
-                 /* while($res=mysql_fetch_array($requete)){
-                echo(' <div class="col-sm-4 portfolio-item">'); 
-                echo('<a href="addpanier.php?id='.$res['id'].'">');
-                echo('  <img class="img-responsive"  name="img" src='.$res['image'].' alt="" title="descriptif">
-                  <img class="img-responsive"  name="img" src="image/panier.png" alt="" title="ajouter au panier">');
-                echo('</a>');
-                echo('<h3>');
-                echo('<a href="#">Project Name</a>');
-                echo('</h3>');
-                echo('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>');
-                echo('</div>');
-              }*/
-              ?>
                 
         
         </div>
@@ -182,5 +152,8 @@ $marque=$_POST['marque'];
 
 
 <script type="text/javascript" src="bootstrap/js/ajout-panier.js"></script>
+<script type="text/javascript" src="bootstrap/js/calendrier.js"></script>
+<script type="text/javascript" src="bootstrap/js/chargement.js"></script>
+
 </body>
 </html>

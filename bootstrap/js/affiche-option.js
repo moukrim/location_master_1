@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 
-
    
 var marque={};
 $("#step1 select").each(function(){
@@ -11,7 +10,7 @@ select.remove();
 
 
 });
-console.log(marque);
+//console.log(marque);
 
 $("#speed1").change(function(event){
 

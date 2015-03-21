@@ -24,7 +24,7 @@ require '_header.php';
          
                   <div class="navbar-header">
          
-           <a class="navbar-brand" href="#">Location voiture</a>
+           <a class="navbar-brand" href="index.php">Location voiture</a>
         
          </div> 
          <div id="form-inline">
@@ -79,9 +79,9 @@ die('empty!!!');
 
                           <div class="rowtitle">
                             <span class="name">Nom de Produit</span>
-                            <span class="price">Price</span>
+                            <span class="price">Prix/KM</span>
                             <span class="quantity">KMs</span>
-                            <span class="subtotal">Prix avec TVA</span>
+                            <span class="subtotal">Prix/100KMs</span>
                             <span class="action">Actions</span>
                           </div>
 
@@ -93,12 +93,14 @@ die('empty!!!');
                           <div class="row1">
                         
                             <a href="#" class="img"> <img src='.$res['image'].' height="53"></a>
-                            <span class="name">'.$res['marque'].'</span>
+                            <span class="name">'.$res['marque'].' '.$res['modele'].'</span>
                             <span class="price">'.$res['prix'].' €</span>
                             <span class="quantity"><input class="input_km" type="text" style="text-align:center" value='.$_SESSION['panier'][$res['id']].'></span>
-                            <span class="subtotal">15500 €</span>
+                            <span class="subtotal">'.number_format($res['prix'] *100, 2, ',', ' ').'€</span>
                             <span class="action">
                               <a href="panier.php?delPanier='.$res['id'].'" class="del"><img src="img/del.png"></a>
+                              <a href="panier.php?delPanier='.$res['id'].'" class="del"><img src="img/gift.png"></a>
+                              
                             </span>
                             </div>
                             ');}

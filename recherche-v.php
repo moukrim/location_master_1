@@ -9,6 +9,7 @@
 	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   </head>
 
+
   <body background="image/bg.jpg">
   		<?php
  
@@ -29,7 +30,7 @@
   					$re = @mysql_query($sq, $cnx) or die($sq."<br>".mysql_error()) ;
 
   					 //création de la requête SQL
- 					 $s = "SELECT marque FROM vehicule WHERE type='Berline'	GROUP BY marque ";
+ 					 $s = "SELECT marque FROM vehicule WHERE type='Berline' GROUP BY marque ";
  					 //exécution de la requête SQL
   					$r = @mysql_query($s, $cnx) or die($s."<br>".mysql_error()) ;
 
@@ -75,10 +76,9 @@
 			<div class="row ">
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
-            <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-pencil"></span> LOGIN </a> </li>
+            <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
+			<li> <a href="log-sign.html"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="reherch-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-star-empty"></span> Les plus louées </a> </li>
           
           </ul>
 		  </nav>
@@ -102,112 +102,145 @@
 		</aside>
 		
 	</div>
-	</div>	
-        <div class="col-sm-8" > 
-        	<form method="post" action="liste-voiture.php">
-			<div class="row">
-				<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" >
-					<select name="type" id="speed1" class="form-control">
-						<option value="0">
-							Selectionner le type
-						</option>
-					<?php
-			       
-					while( $result = mysql_fetch_assoc( $requete ) )
-					{
-						echo( '<option>'.$result["type"].'</option>');
-					}
-					
-					?>
-					</select>
+	</div><!--<div class="col-sm-4" >
+		<div class="well">
+			<form id="eventForm" method="post" class="form-horizontal">
 
-			</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" style="height:30px; ">
-										
-				
-				</div>
-			</div>	
+			    <div class="form-group">
+			        <label class="col-xs-5 control-label">Date début:</label>
+			        <div class="col-xs-5 date">
+			           <input type="date" id="dtdebut" name="dtdebut" style="height:30px;" >
+			        </div>
+			    </div>
 
+			    <div class="form-group">
+			        <label class="col-xs-5 control-label">Date fin:</label>
+			        <div class="col-xs-5 date">
+			           <input type="date" id="dtfin" name="dtfin" style="height:30px;" >
+			        </div>
+			    </div>
 
-			
-			<div class="row">
-			<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" >	
-			<div id="step1">
-			<div class="row">
-				<div class="col-sm-12">
-										
-				 <?php
-			        echo( '<select name="marque" id="4X4" class="form-control">\n' );
-					while( $result = mysql_fetch_assoc( $re ) )
-					{
-						echo( '<option>'.$result["marque"].'</option>');
-					}
-					echo( "</select>");	
-					?>
-				</div>
-			</div>
-				
-			<div class="row">
-				<div class="col-sm-12">
-										
-				 <?php
-			        echo( '<select name="marque" id="Berline" class="form-control">\n' );
-					while( $resultat = mysql_fetch_assoc( $r ) )
-					{
-						echo( '<option>'.$resultat["marque"].'</option>');
-					}
-					echo( "</select>");	
-					?>
-				</div>
-			</div>
-
-
-
-			<div class="row">
-				<div class="col-sm-12">
-										
-				 <?php
-			        echo( '<select name="marque" id="Citadine" class="form-control">\n' );
-					while( $res = mysql_fetch_assoc( $rr ) )
-					{
-						echo( '<option>'.$res["marque"].'</option>');
-					}
-					echo( "</select>");	
-					?>
-				</div>
-			</div>
-
-			</div>
-			</div>
-
-
-			</div>
-			<div class="row">
-				<div class="col-sm-offset-5 col-sm-2 col-sm-offset-5" >
-
-				<button type="submit" class="btn btn-default">Envoyer!</button>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-12" style="height:400px; ">
-										
-				
-				</div>
-			</div>	
-
-
+			    <div class="form-group">
+			        <div class="col-xs-3 col-xs-offset-5">
+			            <button type="submit" id="submit-recherche" class="btn btn-default">Validate</button>
+			        </div>
+			    </div>
 			</form>
+			</div>
+		  </div>-->
+		
+	        <div class="col-sm-8" > 
+	           <div id="cache-filtre">
+	        	<div class="well" style="height:300px;">
+			        	<form method="post" action="liste-voiture.php">
+						<div class="row">
+							<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" >
+								<select name="type" id="speed1" class="form-control">
+									<option value="0">
+										Selectionner le type
+									</option>
+								<?php
+						       
+								while( $result = mysql_fetch_assoc( $requete ) )
+								{
+									echo( '<option>'.$result["type"].'</option>');
+								}
+								
+								?>
+								</select>
+
+						</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" style="height:30px; ">
+													
+							
+							</div>
+						</div>	
+
+
+						
+						<div class="row">
+						<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" >	
+						<div id="step1">
+						<div class="row">
+							<div class="col-sm-12">
+													
+							 <?php
+						        echo( '<select name="marque" id="4X4" class="form-control">\n' );
+								while( $result = mysql_fetch_assoc( $re ) )
+								{
+									echo( '<option>'.$result["marque"].'</option>');
+								}
+								echo( "</select>");	
+								?>
+							</div>
+						</div>
+							
+						<div class="row">
+							<div class="col-sm-12">
+													
+							 <?php
+						        echo( '<select name="marque" id="Berline" class="form-control">\n' );
+								while( $resultat = mysql_fetch_assoc( $r ) )
+								{
+									echo( '<option>'.$resultat["marque"].'</option>');
+								}
+								echo( "</select>");	
+								?>
+							</div>
+						</div>
+
+
+
+						<div class="row">
+							<div class="col-sm-12">
+													
+							 <?php
+						        echo( '<select name="marque" id="Citadine" class="form-control">\n' );
+								while( $res = mysql_fetch_assoc( $rr ) )
+								{
+									echo( '<option>'.$res["marque"].'</option>');
+								}
+								echo( "</select>");	
+								?>
+							</div>
+						</div>
+
+						</div>
+						</div>
+
+
+						</div>
+						<div class="row">
+							<div class="col-sm-offset-5 col-sm-2 col-sm-offset-5" >
+
+							<button type="submit" class="btn btn-default">Envoyer!</button>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12" style="height:400px; ">
+													
+							
+							</div>
+						</div>	
+
+
+						</form>
+				</div>
+			  </div>		
 			</div>
 
         
       </div>
 	  
 	  
-	  
+	  <div class="row col-sm-12" style="height:150px;">
+	  	
+
+	  </div>
 	  
       <footer class="row col-sm-12">
 		<div class="col-sm-offset-5 col-sm-2 col-sm-offset-5">
@@ -222,6 +255,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="bootstrap/js/affiche-option.js"></script>
+    <script src="bootstrap/js/filtre-date.js"></script>
   </body>
 
 </html>

@@ -41,10 +41,9 @@ require '_header.php';
 			<div class="row ">
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
-            <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-pencil"></span> LOGIN </a> </li>
+            <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
+			<li> <a href="#"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-star-empty"></span> Les plus louées </a> </li>
           
           </ul>
 		  </nav>
@@ -81,7 +80,7 @@ require '_header.php';
 						<strong> Connectez-vous</strong>
 					</div>
 					<div class="panel-body">
-						<form role="form" action="#" method="POST">
+						<form role="form">
 							<fieldset>
 								
 								<div class="row">
@@ -91,7 +90,8 @@ require '_header.php';
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Username" name="loginname" type="text" autofocus>
+												 <div id="resultatConnexion"></div>
+												<input class="form-control"  placeholder="Username" id="loginname" name="loginname" type="text" autofocus>
 											</div>
 										</div>
 										<div class="form-group">
@@ -99,11 +99,12 @@ require '_header.php';
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="">
+												<div id="resultatConnexion1"></div>
+												<input class="form-control" placeholder="Password" id="password" name="password" type="password" value="">
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="submit" value="Sign-in" class="btn btn-info btn-block">
+											<input type="submit" id="submit" value="Sign-in" class="btn btn-info btn-block">
 										</div>
 									</div>
 								</div>
@@ -175,5 +176,6 @@ require '_header.php';
 
 
 <script type="text/javascript" src="bootstrap/js/verif-inscription.js"></script>
+ <script src="bootstrap/js/verif-connection.js"></script>
 </body>
 </html>
