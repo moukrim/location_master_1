@@ -8,8 +8,8 @@ $( document ).ready(function() {
 
   $("#submit").click(function(){
        
-    var mail         = $('#loginname');
-    var pass     = $('#password') ;
+    var mail = $('#loginname');
+    var pass = $('#password') ;
     var login_result = $('#resultatConnexion') ;
     var login_result1 = $('#resultatConnexion1') ;
     
@@ -30,22 +30,23 @@ $( document ).ready(function() {
         return false;
     }
         
-    // Post de l'adresse email et du password à connexion.php
+    // Post de l'adresse email et du password à verif_connexion.php
    $.ajax({ 
             type : 'POST',
             data : {mail:mail.val(), 
                     pass:pass.val()},
-            url  : 'verif_connection.php',
+            url  : '../php/verif_connection.php',
 
             success: function(result){ 
                 //login_result.html(result);
                 console.log(result);
                 if(result == "connectionOk"){
                     //login_result.html('<span class="textErreur"></span>');
-                    window.location = 'index.php'; 
+                    window.location = '../php/index.php'; 
                 }
                 else if(result == "connectionKo"){
                     login_result.html('<span class="textErreur">Informations données incorrect</span>');
+                    
                 }
                
             }

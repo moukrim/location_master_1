@@ -204,6 +204,7 @@ CHECKOUT
     float: left;
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); }
 .checkout .table {
+  margin-top:2px;
   background: #FFF;
   border-bottom: 1px solid #e5e6e7; }
   .checkout .table .rowtitle {
@@ -302,4 +303,3 @@ CHECKOUT
       color: #323b49;
       font-size: 16px; }
 
-S

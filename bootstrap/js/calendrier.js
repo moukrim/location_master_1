@@ -26,7 +26,7 @@ function eachBoucle(arr){
    $.each(arr, function( index, value ) {
 
     var request1 = $.ajax({
-        url: "recup_dates.php",
+        url: "../php/recup_dates.php",
         method: "POST",
         data: { id: value },
     });
@@ -60,16 +60,14 @@ function eachBoucle(arr){
   });
 }
 
-$(document).ready(function () {     
+$(document).ready(function () {   
+
   var typeM = $("#num_test").val();
   var marqueM=$("#num_test1").val();
   
-
-
   $.ajax({
-  url: "recup_id_veh.php",
+  url: "../php/recup_id_veh.php?type="+typeM+"& marque="+marqueM+"",
   method: "POST",
-  data: { type : typeM, marque : marqueM },
   })
   .done(function( msg ) {
       arr=$.parseJSON(msg);
@@ -79,9 +77,6 @@ $(document).ready(function () {
 
 
 
-
-
- 
 
 
   });

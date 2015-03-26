@@ -13,12 +13,10 @@ if(empty($res)){
 	}else{
 		$panier->add($res->id);
 		$json['error']  = false;
-		//$json['total']  = number_format($panier->total(),2,',',' ');
-		//$json['count']  = $panier->count();
-		$json['message'] = 'Le produit a bien été ajouté à votre panier';
+		$json['message'] = 'Le produit a bien ete ajoute a votre panier';
 	}
 }else{
-	$json['message'] = "Vous n'avez pas sélectionné de produit à ajouter au panier";
+	$json['message'] = "Vous n'avez pas selectionne de produit a ajouter au panier";
 }
 echo json_encode($json);
  

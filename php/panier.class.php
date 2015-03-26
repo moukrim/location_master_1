@@ -7,8 +7,12 @@ public function __construct(){
 		session_start();
 
 	}
+	if(!isset($_SESSION['comp'])){
+		$_SESSION['comp']=0;
+	}
 	if(!isset($_SESSION['panier'])){
 		$_SESSION['panier']=array();
+		
 
 	}
 
@@ -29,13 +33,23 @@ public function add($product_id){
 	}
 	elseif(!isset($_SESSION['panier'][$product_id])){
 	$_SESSION['panier'][$product_id]=50;
+	$_SESSION['comp']++;
 
 	}
+	
+	
+	
+
 }
 
 
 public function del($product_id){
+	if(isset($_SESSION['panier'][$product_id])){
 		unset($_SESSION['panier'][$product_id]);
+		$_SESSION['comp']--;
+	}
+		
+
 	}
 
 }

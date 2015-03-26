@@ -9,13 +9,13 @@ require '_header.php';
 
   <head>
     <meta charset="utf-8">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="bootstrap/css/styles.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../bootstrap/css/styles.css" rel="stylesheet">
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   </head>
 
-  <body background="image/bg.jpg">
+  <body background="../image/bg.jpg">
    
       <header class="row col-sm-12" >
         <div class="navbar navbar-default navbar-fixed-top" style="background-color:#BBE1D7 ;">
@@ -44,7 +44,7 @@ require '_header.php';
             <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
 			<li> <a href="log-sign.html"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
-          
+			<li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           </ul>
 		  </nav>
 		  </div>
@@ -82,15 +82,15 @@ require '_header.php';
 			  <div class="carousel-inner">
     
 				<div class="item active">
-					<img src="image/v1.jpg"  class="adaptar">
+					<img src="../image/v1.jpg"  class="adaptar">
 				</div>
         
 				<div class="item">
-					<img src="image/v2.jpg"  class="adaptar">
+					<img src="../image/v2.jpg"  class="adaptar">
 				</div>
 				
 				<div class="item">
-					<img src="image/v3.jpg"  class="adaptar">
+					<img src="../image/v3.jpg"  class="adaptar">
 				</div>
         
 				<a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -126,24 +126,7 @@ require '_header.php';
 					   </thead>
 					   <tbody>
 					   <?php
-							$sql = "SELECT * FROM vehicule ORDER BY nbLoc DESC LIMIT 0,4";
-							//exécution de la requête SQL
-							$req = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
-
-							$couleur= array('success','active','warning','danger');
-
-							$i=0;
-                          while($res=mysql_fetch_array($req)){
-                        echo('
-					      
-					      <tr class="'.$couleur[$i++].'">
-					         <td>'.$res['marque'].'</td>
-					         <td>'.$res['type'].'</td>
-					         <td>'.$res['modele'].'</td>
-					         <td>'.$res['prix'].'</td>
-					      </tr>
-					    ');
-                    		}
+							require 'recup-nbLoc.php';
 					    ?>
 					   </tbody>
 					</table>
@@ -183,9 +166,7 @@ require '_header.php';
    
    
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
   </body>
 
 </html>
