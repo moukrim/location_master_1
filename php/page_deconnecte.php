@@ -18,10 +18,10 @@ require '_header.php';
   <body background="../image/bg.jpg">
    
       <header class="row col-sm-12" >
-        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#BBE1D7 ;">
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#000101 ;">
 				  <div class="navbar-header">
          
-					 <a class="navbar-brand" href="#">Location voiture</a>
+					 <a class="navbar-brand" href="#" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
 				 
@@ -42,7 +42,7 @@ require '_header.php';
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="log-sign.html"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
+			<li> <a href="log-sign.php"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
 			<li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           </ul>
@@ -79,7 +79,7 @@ require '_header.php';
 					<li data-target = "#myCarousel" data-slide-to="2"></li>
 				</ol>
     
-			  <div class="carousel-inner">
+			  <div class="carousel-inner"  style="margin-left: -2px;">
     
 				<div class="item active">
 					<img src="../image/v1.jpg"  class="adaptar">

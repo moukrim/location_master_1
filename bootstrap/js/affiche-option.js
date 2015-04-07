@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
    
 var marque={};
-$("#step1 select").each(function(){
+$("#marqueSelect select").each(function(){
 
 var select=$(this);
 marque[select.attr('id')]=select;
@@ -12,18 +12,18 @@ select.remove();
 });
 //console.log(marque);
 
-$("#speed1").change(function(event){
+$("#typeSelect").change(function(event){
 
 var valeur=$(this).val();
 
 if(valeur==0){
 
-	$("#step1").hide();
+	$("#marqueSelect").hide();
 }
 else{
-	$("#step1").show();
+	$("#marqueSelect").show();
 
-	$("#step1").empty().append(marque[valeur]);
+	$("#marqueSelect").empty().append(marque[valeur]);
 }
 
 

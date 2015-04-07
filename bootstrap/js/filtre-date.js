@@ -35,7 +35,7 @@ function recupVoiture(newDateDebut,newDateFin){ $.ajax({
                     })
                     .done(function( msg ) {
                         array=$.parseJSON(msg);
-                       // console.log(array);
+                        console.log(array);
                         $.each(array, function( ind, val ) {
                            console.log(val.marque); 
                            $("#liste").append('\
@@ -78,11 +78,13 @@ $(document).ready(function () {
             var fin=$("#to").val();
 
              if(debut==''){
-               $("#erreurdate").html('<span class="textErreur">veuillez selectionner une date de début</span>');
+               $("#erreurdate").html('<span class="textErreur">veuillez selectionner une date de début</span>').show();
+                $('#erreurdate').delay(2000).hide("slow" ); 
               return false;
 
             }if(fin==''){
-               $("#erreurdate").html('<span class="textErreur">veuillez selectionner une date de fin</span>');
+               $("#erreurdate").html('<span class="textErreur">veuillez selectionner une date de fin</span>').show();
+                $('#erreurdate').delay(2000).hide("slow" ); 
               return false;
             }
 

@@ -34,26 +34,14 @@ require '_header.php';
 		?>
    
       <header class="row col-sm-12" >
-        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#BBE1D7 ;">
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#000101 ;">
 				 
                   <div class="navbar-header">
          
-					 <a class="navbar-brand" href="#">Location voiture</a>
+					 <a class="navbar-brand" href="index.php" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
-				 <div id="form-inline">
-				 <form class="form-inline">
-  						<div class="form-group">
-    						<label for="exampleInputName2">Name</label>
-   							 <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-  						</div>
- 						 <div class="form-group">
-   							 <label for="exampleInputEmail2">Email</label>
-    						 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-  						</div>
- 						 <button type="submit" class="btn btn-default">Envoyer</button>
-				</form>
-				</div>
+				
             </div>
       </header>
 	  
@@ -65,8 +53,8 @@ require '_header.php';
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="log-sign.html"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
-            <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
+			<li> <a href="log-sign.php"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
+            <li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           
           </ul>
 		  </nav>
@@ -127,7 +115,7 @@ require '_header.php';
 			        	<form >
 						<div class="row">
 							<div class=" col-sm-12 " >
-								<select name="type" id="speed1"   class="form-control">
+								<select name="type" id="typeSelect"   class="form-control">
 									<option  value="0">
 										Selectionner le type
 									</option>
@@ -135,7 +123,7 @@ require '_header.php';
 						       
 								while( $result = mysql_fetch_assoc( $requete ) )
 								{
-									echo( '<option>'.$result["type"].'</option>');
+									echo( '<option >'.$result["type"].'</option>');
 								}
 								
 								?>
@@ -155,7 +143,7 @@ require '_header.php';
 						
 						<div class="row">
 						<div class=" col-sm-12" >	
-						<div id="step1">
+						<div id="marqueSelect">
 						<div class="row">
 							<div class="col-sm-12">
 													
@@ -212,12 +200,6 @@ require '_header.php';
 							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-sm-12" style="height:400px; ">
-													
-							
-							</div>
-						</div>	
 
 
 						</form>
@@ -265,13 +247,7 @@ require '_header.php';
 
 	  </div>
 	  
-      <footer class="row col-sm-12">
-		<div class="col-sm-offset-5 col-sm-2 col-sm-offset-5">
-        <div class="panel panel-body">
-          <p>Copyright © 2015 M.Y</p>
-        </div>
-		</div>
-      </footer>
+  
    
 
    
@@ -284,6 +260,7 @@ require '_header.php';
       </div>
       <div class="modal-body">
         Le véhicule a bien été ajouter au comparateur...
+        Le comparateur permet de comparer plusieurs voitures selectionnées et de choisir le nombre de KMs voulus parcourir.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

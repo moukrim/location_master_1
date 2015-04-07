@@ -18,10 +18,10 @@ require '_header.php';
   <body background="../image/bg.jpg">
    
       <header class="row col-sm-12" >
-        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#BBE1D7 ;">
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#000101 ;">
 				  <div class="navbar-header">
          
-					 <a class="navbar-brand" href="#">Location voiture</a>
+					 <a class="navbar-brand" href="#" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
 				 
@@ -44,6 +44,7 @@ require '_header.php';
             <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
 			<li> <a href="deconnexion.php"> <span class="glyphicon glyphicon-off"></span> Deconnexion </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
+            <li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           
           </ul>
 		  </nav>
@@ -79,7 +80,7 @@ require '_header.php';
 					<li data-target = "#myCarousel" data-slide-to="2"></li>
 				</ol>
     
-			  <div class="carousel-inner">
+			  <div class="carousel-inner" style="margin-left: -2px;">
     
 				<div class="item active">
 					<img src="../image/v1.jpg"  class="adaptar">
@@ -126,24 +127,7 @@ require '_header.php';
 					   </thead>
 					   <tbody>
 					   <?php
-							$sql = "SELECT * FROM vehicule ORDER BY nbLoc DESC LIMIT 0,4";
-							//exécution de la requête SQL
-							$req = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
-
-							$couleur= array('success','active','warning','danger');
-
-							$i=0;
-                          while($res=mysql_fetch_array($req)){
-                        echo('
-					      
-					      <tr class="'.$couleur[$i++].'">
-					         <td>'.$res['marque'].'</td>
-					         <td>'.$res['type'].'</td>
-					         <td>'.$res['modele'].'</td>
-					         <td>'.$res['prix'].'</td>
-					      </tr>
-					    ');
-                    		}
+							require 'recup-nbLoc.php';
 					    ?>
 					   </tbody>
 					</table>

@@ -3,7 +3,7 @@
 							//exécution de la requête SQL
 							$req = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
 
-							$couleur= array('success','active','warning','danger');
+							$couleur= array('active','active','active','active');
 
 							$i=0;
                           while($res=mysql_fetch_array($req)){

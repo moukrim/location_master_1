@@ -1,12 +1,12 @@
 var marqueVoiture;
 var typeVoiture;
-var etat=true;
+
 
 $(document).ready(function () {     
 
   $("#submit-option").click(function() {
       $("#liste").empty();
-    typeVoiture=$('#speed1 option:selected').val();  
+    typeVoiture=$('#typeSelect option:selected').val();  
     var element1 = $("#4X4");
     var element2 = $("#Berline");
     var element3 = $("#Citadine");
@@ -23,7 +23,9 @@ $(document).ready(function () {
 
     if(typeVoiture=="0"){
 
-          $("#erreur").html('<span class="textErreur">veuillez selectionner un type de voiture</span>');
+          $("#erreur").html('<span class="textErreur">veuillez selectionner un type de voiture</span>').show();
+           $("#erreur").delay(2000).hide("slow" ); 
+           return false;
     }
     else{        
           rechercheVoiture(typeVoiture,marqueVoiture);
@@ -89,8 +91,21 @@ function afficheVoitureHtml(array){
                                               </div>\
                                               </div>\
                                               ');
-                      $('#calendrier').append('<div id="'+val.id+'" style="margin-left: 45px;"></div>');
-
+                          $("#calendrier").append('\
+                                        <div class="modal fade bs-example-modal-sm" id="c'+val.id+'" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">\
+                                              <div class="modal-dialog modal-sm">\
+                                                <div class="modal-content">\
+                                                <div class="modal-header">\
+                                                <h4 class="modal-title" id="myModalLabel">Dates d\' <font color="red">indisponibilité</font>:</h4>\
+                                                <div>\
+                                                 <div class="modal-body">\
+                                                      <div id="'+val.id+'" style="margin-left:10px;"></div> \
+                                                  </div>\
+                                                 </div>\
+                                              </div>\
+                                            </div>\
+                                            ');
+                    
                    });
                     affichePopupAjoutPanier();
                     recupIdPourCal();
@@ -121,16 +136,9 @@ function listenCLick(arr){
     $.each(arr, function( index, value ) {
         
         $('#cal'+value).click(function() {
-            
-            if(etat==true){
-                $('#'+value).show('slow');
-                etat=false;
-            }
-            else{
-                $('#'+value).hide(1000);
-                etat=true;
-            }
 
+                $('#c'+value).modal('show');
+            
         });  
     
     });
@@ -150,30 +158,29 @@ function eachBoucle(arr){
      $("#"+value).jqxCalendar({ enableTooltips: true, width: 220, height: 220});
 
     request1.done(function( msg ) {
-    array=$.parseJSON(msg);
-    console.log(array);
-    
-    if(array!='ko'){
-      $.each(array, function( ind, val ) {
-        console.log(array);
-        $.each(val, function( i, v ) {
-         
+            array=$.parseJSON(msg);
+            console.log(array);
+            
+            if(array!='ko'){
+              $.each(array, function( ind, val ) {
+                console.log(array);
+                $.each(val, function( i, v ) {
+                 
 
-          $("#"+value).jqxCalendar('addSpecialDate', new Date(v), '', 'Indisponible');
+                  $("#"+value).jqxCalendar('addSpecialDate', new Date(v), '', 'Indisponible');
 
+                });
+              }); 
 
-        });
-      }); 
-
-    }
-    else
-    {
-      $("#cal"+value).hide();
-    }
+            }
+            else
+            {
+              $("#cal"+value).hide();
+            }
 
 
   });
-      $("#"+value).hide();
+      
   });
 }
 

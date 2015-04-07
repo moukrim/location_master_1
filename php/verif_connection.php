@@ -21,7 +21,7 @@ if($_POST["mail"] != "" && $_POST["pass"] != "")
     //début de la session
     session_start() ;
     //enregistrement d'une variable de session, ici le login de l'utilisateur
-    $_SESSION["nom"] = $result->nom ;
+    $_SESSION["id"] = $result->id ;
  
     echo ("connectionOk");
   }//fin if

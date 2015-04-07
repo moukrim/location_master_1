@@ -1,7 +1,7 @@
 ﻿<?php 
 session_start();
 
-if($_SESSION['nom']){
+if($_SESSION['id']){
    header('Location: page_connecte.php');
       
 }else{        

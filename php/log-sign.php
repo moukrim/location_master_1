@@ -17,10 +17,10 @@ require '_header.php';
   <body background="../image/bg.jpg">
    
      <header class="row col-sm-12" >
-        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#BBE1D7 ;">
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color:#000101 ;">
 				  <div class="navbar-header">
          
-					 <a class="navbar-brand" href="#">Location voiture</a>
+					 <a class="navbar-brand" href="index.php" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
 				 
@@ -42,8 +42,9 @@ require '_header.php';
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="#"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
+         	<li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>       
+
           
           </ul>
 		  </nav>
@@ -77,7 +78,7 @@ require '_header.php';
      	 <div class="row">
         	<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong> Connectez-vous</strong>
+						<h3 class="panel-title"> Connectez-vous</h3>
 					</div>
 					<div class="panel-body">
 						<form role="form">
