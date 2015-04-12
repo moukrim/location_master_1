@@ -10,8 +10,7 @@ require '_header.php';
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../bootstrap/css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8">
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="../bootstrap/js/jquery.js"></script>
   </head>
 
   <body background="../image/bg.jpg">
@@ -24,12 +23,6 @@ require '_header.php';
 				
 				 </div> 
 				 
-				 <form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Envoyer</button>
-				</form>
             </div>
       </header>
 	  
@@ -118,47 +111,54 @@ require '_header.php';
 
         </div>
 
-        <!-- Projects Row -->
+        
         <div class="row">
 
              
 		        	<div class="panel panel-default">
 		        		<div class="panel-heading">
-					    		<h3 class="panel-title">Enregistrer-vous sur notre site <small>It's free!</small></h3>
+					    		<h3 class="panel-title">Enregistrer-vous sur notre site <small>C'est gratuit!</small></h3>
 					 			</div>
 					 			<div class="panel-body">
-					    		<form role="form" method="post" action="enregistrer_utilisateur.php" onsubmit="return verifForm(this)">
+					 			<div id="enregistre"></div>
+					    		<form  >
 					    			<div class="row">
 					    				<div class="col-xs-6 col-sm-6 col-md-6">
+					    					<div id="erreurprenom"></div>
 					    					<div class="form-group">
-					                <input type="text" name="nom" id="first_name" class="form-control input-sm" placeholder="First Name(min 2 caractères)" onblur="verifNom(this)">
+					                <input type="text"  id="prenom" class="form-control input-sm" placeholder="Prenom (min 2 caractères)" >
 					    					</div>
 					    				</div>
 					    				<div class="col-xs-6 col-sm-6 col-md-6">
+					    					<div id="erreurnom"></div>
 					    					<div class="form-group">
-					    						<input type="text" name="prenom" id="last_name" class="form-control input-sm" placeholder="Last Name(min 2 caractères)" onblur="verifPrenom(this)">
+					    						<input type="text"  id="nom" class="form-control input-sm" placeholder="Nom (min 2 caractères)" >
 					    					</div>
 					    				</div>
 					    			</div>
 
 					    			<div class="form-group">
-					    				<input type="email" name="mail" id="email" class="form-control input-sm" placeholder="Email Address(XXX@YYY.ZZ)" onblur="verifMail(this)">
+					    				<div id="erreurmail"></div>
+					    				<input type="email"  id="email" class="form-control input-sm" placeholder="Adresse Mail (XXX@YYY.ZZ)">
 					    			</div>
 
 					    			<div class="row">
 					    				<div class="col-xs-6 col-sm-6 col-md-6">
+					    				<div id="erreurmdp"></div>
 					    					<div class="form-group">
-					    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password(min 8 caractères)" onblur="verifMdp(this)">
+					    						<input type="password" id="mdp" class="form-control input-sm" placeholder="Mot de passe (min 8 caractères)" >
 					    					</div>
 					    				</div>
 					    				<div class="col-xs-6 col-sm-6 col-md-6">
+					    					<div id="erreurmdpconfirm"></div>
 					    					<div class="form-group">
-					    						<input type="password" name="mdp" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" >
+					    						<input type="password"  id="mdp_confirmation" class="form-control input-sm" placeholder="Confirmation de mot de passe" >
 					    					</div>
+					    					
 					    				</div>
 					    			</div>
 					    			
-					    			<input type="submit" value="Register" class="btn btn-info btn-block">
+					    			<input type="button" value="Register" id="register" class="btn btn-info btn-block">
 					    		
 					    		</form>
 					    	</div>
@@ -176,7 +176,8 @@ require '_header.php';
 
 
 
-<script type="text/javascript" src="../bootstrap/js/verif-inscription.js"></script>
  <script src="../bootstrap/js/verif-connection.js"></script>
+ <script type="text/javascript" src="../bootstrap/js/verif-inscription.js"></script>
+
 </body>
 </html>

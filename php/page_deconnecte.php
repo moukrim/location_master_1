@@ -11,8 +11,7 @@ require '_header.php';
     <meta charset="utf-8">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../bootstrap/css/styles.css" rel="stylesheet">
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="../bootstrap/js/jquery.js"></script>
   </head>
 
   <body background="../image/bg.jpg">
@@ -25,12 +24,6 @@ require '_header.php';
 				
 				 </div> 
 				 
-				 <form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Envoyer</button>
-				</form>
             </div>
       </header>
 	  

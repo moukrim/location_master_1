@@ -25,8 +25,7 @@ while($res=mysql_fetch_assoc($requete)){
   	$result2 =$res['finReserv'];
 
   	$dates = getDatesBetween($result1, $result2); 
-  	//$chaine=implode(',', $dates);
-  	//var_dump($chaine);
+
   	array_unshift($tab, $dates);
     
 

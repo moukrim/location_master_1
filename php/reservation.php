@@ -28,6 +28,7 @@ require '_header.php';
 					 <a class="navbar-brand" href="index.php" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
+				 <?php require 'affiche-nom-utilisateur.php'; ?>
 				 
             </div>
       </header>
@@ -40,7 +41,8 @@ require '_header.php';
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="log-sign.php"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
+			<?php require 'bouton-deconnexion.php'; ?>
+			<?php require 'verif-possibilite-seconn.php'; ?>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
 			<li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           </ul>
@@ -92,6 +94,7 @@ require '_header.php';
 							            <td><?=number_format($_POST["prix"] *$_POST["nbKms"], 2, ',', ' ').'€'?></td>
 							            <?php if(isset($_SESSION['id'])){ 
 							            echo('<input type="hidden" id="session" value="'.$_SESSION['id'].'">');
+							            echo('<input type="hidden" id="prixFinale" value="'.number_format($_POST["prix"] *$_POST["nbKms"], 2, ',', ' ').'">');
 							        }
 							            ?>
 							            <input type="hidden" id="id" value=<?='"'.$_POST["id"].'"'  ?>>
@@ -124,9 +127,9 @@ require '_header.php';
 							    <div id="erreur"></div>
 							       <div class="row">
 										<div class="col-sm-12 " >
-						        			<label for="from">From</label>
+						        			<label for="from">Du</label>
 											<input type="text" id="from" name="from" placeholder="Date début">
-											<label for="to">to</label>
+											<label for="to">Au</label>
 											<input type="text" id="to" name="to" placeholder="Date fin">
 
 										</div>

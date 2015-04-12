@@ -13,7 +13,7 @@ require '_header.php';
 	 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8">
 	 <link rel="stylesheet" href="../bootstrap/jqwidgets/styles/jqx.base.css" type="text/css"/>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script type="text/javascript" src="../bootstrap/scripts/jquery-1.11.1.min.js"></script>
+	<script src="../bootstrap/js/jquery.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
   <script type="text/javascript" src="../bootstrap/scripts/demos.js"></script>
   <script type="text/javascript" src="../bootstrap/jqwidgets/jqxcore.js"></script>
@@ -41,7 +41,7 @@ require '_header.php';
 					 <a class="navbar-brand" href="index.php" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
-				
+				<?php require 'affiche-nom-utilisateur.php'; ?>
             </div>
       </header>
 	  
@@ -53,7 +53,8 @@ require '_header.php';
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="log-sign.php"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
+            <?php require 'bouton-deconnexion.php'; ?>
+			<?php require 'verif-possibilite-seconn.php'; ?>
             <li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           
           </ul>
@@ -95,9 +96,9 @@ require '_header.php';
 	        			<div id="erreurdate"></div>
 	        			<div class="row">
 							<div class="col-sm-12 " >
-		        			<label for="from">From</label>
+		        			<label for="from">Du</label>
 							<input type="text" id="from" name="from" placeholder="Date début">
-							<label for="to">to</label>
+							<label for="to">Au</label>
 							<input type="text" id="to" name="to" placeholder="Date fin">
 
 						</div>
@@ -105,7 +106,7 @@ require '_header.php';
 						<div class="row">
 							<div class="col-sm-offset-3 col-sm-9 " >
 
-							<button type="button" id="button-date" class="btn btn-default">Envoyer!</button>
+							<button type="button" id="button-date" class="btn btn-default"> Chercher</button>
 							</div>
 						</div>
 
@@ -143,7 +144,7 @@ require '_header.php';
 						
 						<div class="row">
 						<div class=" col-sm-12" >	
-						<div id="marqueSelect">
+						<div id="marqueSelect" style="margin-bottom:10px;">
 						<div class="row">
 							<div class="col-sm-12">
 													
@@ -196,7 +197,7 @@ require '_header.php';
 						<div class="row">
 							<div class="col-sm-offset-3 col-sm-9" >
 
-							<button type="button" id="submit-option" class="btn btn-default">Envoyer!</button>
+							<button type="button" id="submit-option" class="btn btn-default">Chercher</button>
 							</div>
 						</div>
 

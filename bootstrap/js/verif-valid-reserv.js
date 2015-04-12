@@ -1,6 +1,9 @@
 var session;
 var id;
-$(document).ready(function () {     
+var prixFinale;
+$(document).ready(function () {    
+
+ 
   $("#cache-validation").hide();
 
 $("#btn-reservation").click(function(){
@@ -18,6 +21,7 @@ $("#btn-reserv").click(function(){
 var from=$("#from").val();
 var to=$("#to").val();
 id=$("#id").val();
+ prixFinale=$("#prixFinale").val().replace(",", ".");
 
   var dateArDebut = from.split('/');
             var newDateDebut = dateArDebut[2] + '-' + dateArDebut[0] + '-' + dateArDebut[1];
@@ -50,7 +54,7 @@ $.ajax({
                               $.ajax({
                         url: "../php/reserver.php",
                         method: "POST",
-                        data: {dtdebut : newDateDebut , dtfin : newDateFin , idVehicule : id , idUtilisateur : session },
+                        data: {dtdebut : newDateDebut , dtfin : newDateFin , idVehicule : id , idUtilisateur : session, prix : prixFinale },
                         })
                         .done(function( msg ) {
                              $("#modal-reserv").modal('show');

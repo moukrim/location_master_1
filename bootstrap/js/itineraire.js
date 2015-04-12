@@ -4,6 +4,9 @@ var initialize;
 var calculate;
 var direction;
 
+/*#########################################*/
+/*Calcul d'itinéraire*/
+/*#########################################*/
 initialize = function(){
   var latLng = new google.maps.LatLng(42.309409, 9.15); // Correspond au coordonnées de Lille
   var myOptions = {

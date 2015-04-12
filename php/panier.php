@@ -12,7 +12,7 @@ require '_header.php';
   <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8">  
   <link href="../bootstrap/css/styles.css" rel="stylesheet">
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-  <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="../bootstrap/js/jquery.js"></script>
   </head>
 
   <body background="../image/bg.jpg">
@@ -22,11 +22,12 @@ require '_header.php';
       <header class="row col-sm-12" >
         <div class="navbar navbar-default navbar-fixed-top" style="background-color:#000101 ;">
          
-                  <div class="navbar-header">
+            <div class="navbar-header">
          
-           <a class="navbar-brand" href="index.php" style="color:mintcream;">Location voiture</a>
-        
-         </div> 
+                   <a class="navbar-brand" href="index.php" style="color:mintcream;">Location voiture</a>
+                
+                 </div> 
+                 <?php require 'affiche-nom-utilisateur.php'; ?>
             </div>
       </header>
     
@@ -39,7 +40,8 @@ require '_header.php';
       <nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="index.php"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-      <li> <a href="log-sign.php"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
+            <?php require 'bouton-deconnexion.php'; ?>
+            <?php require 'verif-possibilite-seconn.php'; ?>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
           </ul>
       </nav>
@@ -190,8 +192,7 @@ $(document).ready(function () {
 
 });
 </script> 
- <script type="text/javascript" src="../bootstrap/js/jquery-ui-1.8.12.custom.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=fr"></script>
-<script type="text/javascript" src="../bootstrap/js/functions.js"></script>
+
+<script type="text/javascript" src="../bootstrap/js/itineraire.js"></script>
 </body>
 </html>

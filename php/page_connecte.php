@@ -11,8 +11,7 @@ require '_header.php';
     <meta charset="utf-8">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../bootstrap/css/styles.css" rel="stylesheet">
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="../bootstrap/js/jquery.js"></script>
   </head>
 
   <body background="../image/bg.jpg">
@@ -24,13 +23,7 @@ require '_header.php';
 					 <a class="navbar-brand" href="#" style="color:mintcream;">Location voiture</a>
 				
 				 </div> 
-				 
-				 <form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Envoyer</button>
-				</form>
+				 <?php require 'affiche-nom-utilisateur.php';?>
             </div>
       </header>
 	  
@@ -42,7 +35,7 @@ require '_header.php';
 			<nav class="col-sm-12">
           <ul class="nav nav-pills nav-stacked">
             <li> <a href="#"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
-			<li> <a href="deconnexion.php"> <span class="glyphicon glyphicon-off"></span> Deconnexion </a> </li>
+			<?php require 'bouton-deconnexion.php'; ?>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
             <li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>          
           

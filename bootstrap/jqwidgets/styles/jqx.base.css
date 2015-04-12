@@ -2968,13 +2968,13 @@ of the horizontal scrollbar.*/
 }
 .jqx-icon-arrow-left, .jqx-icon-arrow-left-hover, .jqx-icon-arrow-left-selected
 {
-    background-image: url('images/icon-left.png');
+    background-image: url('./images/icon-left.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 .jqx-icon-arrow-right, .jqx-icon-arrow-right-hover, .jqx-icon-arrow-right-selected
 {
-    background-image: url('images/icon-right.png');
+    background-image: url('./images/icon-right.png');
     background-repeat: no-repeat;
     background-position: center;
 }
