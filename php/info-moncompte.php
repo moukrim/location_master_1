@@ -1,14 +1,14 @@
 
 
 <?php 
-
+//yassine
 if(isset($_POST['id'])){
-	$idU=$_POST['id'];
+$idU=intval($_POST['id']);//éviter l'injection sql
  $cnx = @mysql_connect('localhost', 'root', '') ;
  //sélection de la base de données
  $db  = mysql_select_db('location') ;
 
-  $sql = "SELECT idVehicule from reservation where idUtilisateur='$idU' GROUP BY idVehicule";
+  $sql = "SELECT idVehicule from reservation where idUtilisateur=$idU GROUP BY idVehicule";
  //exécution de la requête SQL
   $requete = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
 

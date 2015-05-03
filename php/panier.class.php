@@ -1,4 +1,5 @@
 <?php
+//yassine
 class panier{
 
 public function __construct(){
@@ -29,10 +30,10 @@ public function __construct(){
 
 public function add($product_id){
 	if(isset($_SESSION['panier'][$product_id])){
-	 $_SESSION['panier'][$product_id]+=50;
+	 $_SESSION['panier'][$product_id]=1;
 	}
 	elseif(!isset($_SESSION['panier'][$product_id])){
-	$_SESSION['panier'][$product_id]=50;
+	$_SESSION['panier'][$product_id]=1;
 	$_SESSION['comp']++;
 
 	}

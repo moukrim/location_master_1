@@ -1,5 +1,5 @@
 <?php
-
+//yassine
 require '_header.php';
 ?>
 <!DOCTYPE HTML>
@@ -139,7 +139,7 @@ require '_header.php';
 
 					    			<div class="form-group">
 					    				<div id="erreurmail"></div>
-					    				<input type="email"  id="email" class="form-control input-sm" placeholder="Adresse Mail (XXX@YYY.ZZ)">
+					    				<input type="email"  id="email" class="form-control input-sm" placeholder="Adresse Mail (XXX@YYY.ZZ)" onblur="verifMail($(this))">
 					    			</div>
 
 					    			<div class="row">

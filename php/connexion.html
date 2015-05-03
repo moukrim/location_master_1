@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="../bootstrap/css/styles.css" rel="stylesheet">
+	  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+
+<body background="../image/bg.jpg">
+   
+  <header class="row col-sm-12" >
+    <div class="navbar navbar-default navbar-fixed-top" style="background-color:#000 ;">
+				<div class="navbar-header">
+          <a class="navbar-brand" style="color: mintcream">Location voiture</a>
+				</div> 
+				
+    </div>
+  </header>
+
+  <div class="col-sm-4 col-md-4 col-md-offset-4 "> 
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong> Connectez-vous</strong>
+        </div>
+         <div class="panel-body">
+          <form role="form">
+            <fieldset>
+              <div class="row">
+                  <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-user"></i>
+                        </span> 
+                         <div id="resultatConnexion"></div>
+                         <div id="IdentifiantInvalide" style="color:red;"></div>
+                         <input class="form-control"  placeholder="Identifiant" id="identifiant" name="identifiant" type="text" autofocus>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <div id="resultatConnexion1"></div>
+                        <div id="MdpInvalide" style="color:red;"></div>
+                        <input class="form-control" placeholder="Mot de passe" id="mdp" name="mdp" type="password" value="">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="button" id="boutonConnexion" value="Connexion" class="btn btn-info btn-block">
+                      <div id="ConnexionInvalide" style="color:red;"></div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+         </div>
+        </div>
+      </div>
+  <script src="../bootstrap/js/session.js"></script>
+  <script src="../bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

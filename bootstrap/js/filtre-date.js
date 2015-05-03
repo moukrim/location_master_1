@@ -1,4 +1,4 @@
-
+//yassine
 //afficher pop-up avant l'ajout au comparateur
 function affichePopupAjPanier(){
 
@@ -52,12 +52,11 @@ function recupVoiture(newDateDebut,newDateFin){
                          </a> \
                          <div class="description"> \
                             '+val.type+', <strong>'+val.marque+' :</strong> \
-                            <a href="#" class="price">'+val.prix+' €/Km</a> \
+                            <a href="#" class="price">'+Math.round(val.prix*150*100)/100+' €/Jr <p style="margin-top:-16px; color:coral;"><em style="font-size:10px; position:absolute;">moins de 150 Km/Jr</em></p></a> \
                         </div> \
-                        <a href="#" id="cal'+val.id+'" class="gift"> \
                         </a> \
                         <div class="rating"> \
-                          <span>Etat :</span> \
+                          <span style="width:170px;">Modele :<strong>'+val.modele+'</strong></span> \
                         </div> \
                         <a href="../php/addPanier.php?id='+val.id+'" class="add addPanier" >add</a>\
                       </div> \

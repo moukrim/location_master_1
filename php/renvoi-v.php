@@ -1,9 +1,9 @@
 <?php 
-
+//yassine
 if(isset($_POST['type']) && isset($_POST['marque']) ){
 
-$type=$_POST['type'];
-$marque=$_POST['marque'];
+$type=addslashes($_POST['type']) ;
+$marque=addslashes($_POST['marque']) ;
  $cnx = @mysql_connect('localhost', 'root', '') ;
  //sélection de la base de données
  $db  = mysql_select_db('location') ;

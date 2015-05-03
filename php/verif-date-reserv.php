@@ -1,8 +1,9 @@
 <?php 
+//yassine
 if(isset($_POST['dtdebut']) && isset($_POST['dtfin'])){
 
-$debut=$_POST['dtdebut'];
-$fin=$_POST['dtfin'];
+$debut=addslashes($_POST['dtdebut']); 
+$fin=addslashes($_POST['dtfin']);
 
  $cnx = @mysql_connect('localhost', 'root', '') ;
  //sélection de la base de données

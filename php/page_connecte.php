@@ -1,4 +1,5 @@
 <?php
+//yassine
 require '_header.php';
 //var_dump($_SESSION);
 
@@ -115,7 +116,7 @@ require '_header.php';
 					         <th>Vehicule</th>
 					         <th>Type</th>
 					         <th>Modele</th>
-					         <th>Prix/KMs</th>
+					         <th>Prix/Jr</th>
 					      </tr>
 					   </thead>
 					   <tbody>

@@ -1,8 +1,9 @@
 <?php
+//yassine
 if($_POST["mail"] != "" && $_POST["pass"] != "")
 {
-  $mail     = $_POST["mail"] ;
-  $pass      = $_POST["pass"] ;
+  $mail = addslashes($_POST["mail"]);
+  $pass = addslashes($_POST["pass"]);
  
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;
@@ -10,7 +11,7 @@ if($_POST["mail"] != "" && $_POST["pass"] != "")
   $db  = mysql_select_db('location') ;
  
   //création de la requête SQL
-  $sql = "SELECT * FROM utilisateur WHERE adrMail = '".$mail."' AND mdp = '".$pass."'"	;
+  $sql = "SELECT * FROM utilisateur WHERE adrMail = '$mail' AND mdp = '$pass'"	;
   //exécution de la requête SQL
   $requete = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
   //on récupère le résultat

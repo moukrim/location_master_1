@@ -1,4 +1,5 @@
 <?php
+//yassine
 require '_header.php';
 //var_dump($_POST);
 
@@ -82,19 +83,22 @@ require '_header.php';
 							        <tr>
 							            <th>Nom de produit</th>
 							            <th>Modele</th>
-							            <th>Prix/KM</th>
-							            <th>Prix finale</th>
+							            <th>Prix/Jr>=150KMs</th>
+							            <th>Prix/Jr<=150KMs</th>
 							        </tr>
 							    </thead>
 							    <tbody>
 							        <tr>
 							            <td><?= $_POST["marque"]?></td>
 							            <td><?=$_POST["modele"]?></td>
-							            <td><?=$_POST["prix"].'€'?></td>
-							            <td><?=number_format($_POST["prix"] *$_POST["nbKms"], 2, ',', ' ').'€'?></td>
+							            <td><?=number_format($_POST['prixJour'],2,',',' ').'€'?></td>
+							            <td><?=number_format($_POST['prix'] *150, 2, ',', ' ').'€'?></td>
+							            
+							           
 							            <?php if(isset($_SESSION['id'])){ 
 							            echo('<input type="hidden" id="session" value="'.$_SESSION['id'].'">');
-							            echo('<input type="hidden" id="prixFinale" value="'.number_format($_POST["prix"] *$_POST["nbKms"], 2, ',', ' ').'">');
+							            echo('<input type="hidden" id="prixj" value="'.$_POST['prixJour'].'">');
+							            echo('<input type="hidden" id="prixk" value="'.number_format($_POST['prix'] *150, 2, ',', ' ').'">');
 							        }
 							            ?>
 							            <input type="hidden" id="id" value=<?='"'.$_POST["id"].'"'  ?>>
@@ -122,11 +126,18 @@ require '_header.php';
 				    <div class="panel-body">
 				    	
 				    		<table class="table table-hover">
-							  
+				    		<div id="rad" style="position:absolute; margin-top:-18px;">
+							  <div class="radio">
+						     	 <label><input type="radio" id="optradiojour" name="optradio" checked>> 150 KMs/Jr</label>
+						    </div>
+						    <div class="radio"> 
+						     	 <label><input type="radio" id="optradiokm" name="optradio">< 150 KMs/Jr</label>
+						    </div>
+						    </div>
 							    <tbody>
 							    <div id="erreur"></div>
 							       <div class="row">
-										<div class="col-sm-12 " >
+										<div class="col-sm-12 " style="margin-left:120px;" >
 						        			<label for="from">Du</label>
 											<input type="text" id="from" name="from" placeholder="Date début">
 											<label for="to">Au</label>
@@ -134,8 +145,11 @@ require '_header.php';
 
 										</div>
 									</div>
+									<div id="ww">
+									<div id="prixfinale" style="position:absolute; margin-top:-35px; margin-left:550px;">
+									</div>
 									 <input type="button" id="btn-reserv"  class="btn btn-success" value="Valider la réservation">
-							       
+							       </div>
 							    </tbody>
 							</table>
 
@@ -192,7 +206,6 @@ require '_header.php';
 </div>
 
     <script src="../bootstrap/js/bootstrap.js"></script>
-    <script src="../bootstrap/js/uical.js"></script>
     <script src="../bootstrap/js/verif-valid-reserv.js"></script>
   </body>
 

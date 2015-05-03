@@ -1,4 +1,5 @@
 <?php
+//yassine
 require '_header.php';
 //var_dump($_POST);
 
@@ -8,7 +9,7 @@ require '_header.php';
 <html>
 
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8">  
 	<link href="../bootstrap/css/styles.css" rel="stylesheet">
@@ -70,12 +71,16 @@ require '_header.php';
         <div class="col-sm-8"> 
 			<div class="row">
 				<div class="col-sm-12">
-				<div class="panel panel-warning" style="width:874px;">
-				    <div class="panel-heading">
-				        <h3 class="panel-title">Votre historique</h3>
+				<div class="panel panel-warning" style="width:1100px;">
+				    <div class="panel-heading" style="height: 51px;">
+				        <ul class="nav nav-tabs">
+						  <li role="presentation"  class="active"><a data-toggle="tab" href="#hist"><span class="glyphicon glyphicon-time"></span>Votre historique</a></li>
+						  <li role="presentation" ><a data-toggle="tab" href="#profile1"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+						</ul>
 				    </div>
 				 
-				    	
+				    	<div class="tab-content" >
+			  			   <div class="tab-pane active" id="hist">
 				    		<table class="table table-hover">
 							    <thead>
 							        <tr>
@@ -87,6 +92,7 @@ require '_header.php';
 							            <th>Type</th>
 							            <th>Modele</th>
 							            <th>Informations de réservation</th>
+							            <th>Annuler une réservation</th>
 
 							        </tr>
 							    </thead>
@@ -97,9 +103,33 @@ require '_header.php';
 							    </tbody>
 
 							</table>
-							
+						  </div>
+						  <div class="tab-pane" id="profile1">
+						   <table class="table table-hover">
+							    <thead>
+							        <tr>
+							            <th>Nom</th>
+							            <th>Prénom</th>
+							            <th>Adresse Mail</th>
+							            <th>Mot de Passe</th>
+
+							        </tr>
+							    </thead>
+							    <tbody id="affiche-profile">
+
+							        
+
+							    </tbody>
+
+							</table>
+						   	</div>
+			   			</div>	
+
+						   
+						  
 				    
 			   </div>
+			  
 
 			</div>
 			</div>
@@ -136,11 +166,18 @@ require '_header.php';
 	  
 	  
 	  
+ <div class="modal fade bs-example-modal-sm" id="conf-annul" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="text-align:center; font-size:20px;">
+    	L'annulation a été bien enregistrer..<img src="../img/annuler.jpg" style="height:200px;">
+     </div>
+  </div>
+</div>
 
    
- <div class="modal fade bs-example-modal-sm" style="margin-left:-150px;" id="modal-date" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+ <div class="modal fade bs-example-modal-sm" style="margin-left:-600px;" id="modal-date" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
-    <div class="modal-content" style="text-align:center; font-size:20px;  width:600px;">
+    <div class="modal-content" style="text-align:center; font-size:20px;  width:900px;">
     	<table class="table table-hover">
 							    <thead>
 							        <tr>
@@ -148,6 +185,7 @@ require '_header.php';
 							            <th style="color:green;">Date fin</th>
 							            <th style="color:green;">Prix Payé(€)</th>
 							            <th style="color:green;">Date de réservation</th>
+							       		<th style="color:green;">Numéro de réservation</th>
 
 							        </tr>
 							    </thead>

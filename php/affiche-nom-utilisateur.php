@@ -1,4 +1,6 @@
-<?php if (isset($_SESSION['prenom'])) {
+<?php
+//yassine
+ if (isset($_SESSION['prenom'])) {
 
 echo(' <div id="moncompte">
 			<span class="label label-primary" style="float:right;">Bonjour '.$_SESSION["prenom"].'</span>

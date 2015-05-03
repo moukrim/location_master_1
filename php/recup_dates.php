@@ -1,15 +1,15 @@
 <?php 
-
+//yassine
 if(isset($_POST['id'])  ){
 
-	$id=$_POST['id'];
+$id=intval($_POST['id']) ;
 
  $cnx = @mysql_connect('localhost', 'root', '') ;
  //sélection de la base de données
  $db  = mysql_select_db('location') ;
  
  //création de la requête SQL
- $sql = "SELECT debutReserv, finReserv FROM reservation WHERE idVehicule='$id' ";
+ $sql = "SELECT debutReserv, finReserv FROM reservation WHERE idVehicule=$id ";
 
 
  //exécution de la requête SQL

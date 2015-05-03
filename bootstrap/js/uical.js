@@ -1,9 +1,10 @@
+//yassine
  $(function() {
     $( "#from" ).datepicker({
       defaultDate: "+1w",
       changeMonth: true,
       numberOfMonths: 1,
-      minDate: 0,
+      minDate: 1,
       onClose: function( selectedDate ) {
         $( "#to" ).datepicker( "option", "minDate", selectedDate );
       }

@@ -1,3 +1,4 @@
+//yassine
 var map;
 var panel;
 var initialize;

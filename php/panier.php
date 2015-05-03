@@ -1,4 +1,5 @@
 <?php
+//yassine
 require '_header.php';
 //var_dump($_SESSION);
 
@@ -86,8 +87,8 @@ require '_header.php';
                           <div class="rowtitle">
                             <span class="name">Nom de Produit</span>
                             <span class="price">Prix/KM</span>
-                            <span class="quantity">KMs</span>
-                            <span class="subtotal">Prix/100KMs</span>
+                            <span class="quantity">Prix/Jr</span>
+                            <span class="subtotal">Prix/Jr<=150KMs</span>
                             <span class="action">Actions</span>
                           </div>
 
@@ -110,13 +111,14 @@ require '_header.php';
                             <input type="hidden" name="marque" value="'.$res['marque'].'">
                             <input type="hidden" name="modele" value="'.$res['modele'].'">
                             <input type="hidden" name="prix" value="'.$res['prix'].'">
+                            <input type="hidden" name="prixJour" value="'.$res['prixJour'].'">
                             <input type="hidden" name="id" value="'.$res['id'].'">
                             
                             <a href="#" class="img" > <img src='.$res['image'].' height="53" ></a>
                             <span class="name" >'.$res['marque'].' '.$res['modele'].'</span>
                             <span class="price" name="prix">'.$res['prix'].' €</span>
-                            <span class="quantity"><input class="input_km" name="nbKms" type="text" style="text-align:center" value='.$_SESSION['panier'][$res['id']].'></span>
-                            <span class="subtotal">'.number_format($res['prix'] *100, 2, ',', ' ').'€</span>
+                            <span class="quantity"><input class="input_km" name="nbKms" type="text" style="text-align:center; width:40px;" value='.number_format($res['prixJour'], 2, ',', ' ').'€ disabled></span>
+                            <span class="subtotal">'.number_format($res['prix'] *150, 2, ',', ' ').'€</span>
                             <span class="action">
                               <a href="panier.php?delPanier='.$res['id'].'" class="del"><img src="../img/del.png"></a>
                               <a href="#" id="envoyer'.$res['id'].'"><img src="../img/ok.png"/></a>
@@ -128,8 +130,14 @@ require '_header.php';
                             ?>
            
                             </div>
-                          <div class="rowtotal">
-                            <input type="button" id="clcItin"  onclick="displayMap()" class="btn btn-success" value="Calculer Itinéraire">
+                          <div class="rowtotal" style="padding-left:0px; height:75px;">
+                          <p style="margin: -20px;margin-left: 5px;height: 40px; font-size: 12px;">
+                          	<font style="text-decoration:underline;">Prix/Jr:</font> Le prix par jour si vous voulez dépasser 150 KMs par jour.</p>
+                          <p style="margin-left: 5px; height: 7px;font-size: 12px;">
+                          	<font style="text-decoration:underline;">Prix/Jr<=150KMs:</font> Le prix si vous ne souhaitez pas dépasser 150 KMs par jour.</p>
+                          <p style="margin-left: 5px;font-size: 12px; color:crimson;">
+                          	<font style="text-decoration:underline;">Important:</font>Chaque dépassement de 600 KMs par jour sera facturé par le Prix/KM de la voiture indiqué ci-dessus.</p>
+                            <input type="button" id="clcItin"  onclick="displayMap()" class="btn btn-success" value="Calculer Itinéraire" style="float:right; margin-top:-75px;">
                           </div>
                           
                         </div>
