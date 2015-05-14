@@ -1,4 +1,7 @@
-
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet d'ajouter un vehicule dans la base de données */
+/*#######################################################*/
 <?php
 if($_POST["type"] != "" && $_POST["marque"] != "" && $_POST["modele"] != "" && $_POST["plaque"] != "" && $_POST["kilometre"] != "" && $_POST["prix"] != "" && $_POST["prixJour"] != "" && $_POST["file"] != "")
 
@@ -18,7 +21,6 @@ $pathImage = '../image-voiture/'.$file;
   //sélection de la base de données
   $db_selected = mysql_select_db('location');
 
-  //création de la requête SQL
   
   $req=mysql_query("Insert Into vehicule (id, plaque, type, marque, modele, kilometrage, prix, prixJour, image, nbLoc) values ('0', '$plaque', '$type', '$marque' , '$modele' , '$kilometre', '$prix', '$prixJour', '$pathImage','0');");
 if ($req)  
