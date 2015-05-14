@@ -1,11 +1,9 @@
 
-<!--cedric teramo
-#######################################################
- Page qui permet d'ajouter un client dans la base de données 
-####################################################### 
--->
-
 <?php
+//cedric teramo
+/*#######################################################*/
+/*  Page qui permet d'ajouter un client dans la base de données*/
+/*#######################################################*/
 if($_POST["type"] != "" && $_POST["marque"] != "" && $_POST["modele"] != "" && $_POST["plaque"] != "" && $_POST["kilometre"] != "" && $_POST["prix"] != "" && $_POST["prixJour"] != "" && $_POST["file"] != "")
 
 {
