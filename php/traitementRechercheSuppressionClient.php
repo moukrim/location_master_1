@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet de recupérer les informations concernant un client */
+/*#######################################################*/
 <?php
 
 if($_POST["adrMail"] != "" )
