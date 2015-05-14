@@ -75,7 +75,7 @@ $(document).ready(function () {
                           return false;
                       }else if(res=='non'){
          
-                       $("#pas-annul"+index).html('<span style="color:red;">Veuiller bien remplir le numéro de réservation!!</span>').show();
+                       $("#pas-annul"+index).html('<span style="color:red;">L\'annulation n\'est pas valide!!</span>').show();
                        $('#pas-annul'+index).delay(3000).hide("slow" ); 
                        return false;
                       }

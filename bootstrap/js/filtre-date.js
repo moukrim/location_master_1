@@ -1,7 +1,7 @@
 //yassine
 //afficher pop-up avant l'ajout au comparateur
 function affichePopupAjPanier(){
-
+ 
   $('.addPanier').click(function(){
 
     event.preventDefault();
@@ -40,6 +40,11 @@ function recupVoiture(newDateDebut,newDateFin){
   .done(function( msg ) {
     array=$.parseJSON(msg);
     console.log(array);
+   if(array=='indisponible'){
+
+      $("#voitureIndisponible").html('<span style="color:red; margin-left:300px;">Aucune voiture disponible à cette date!!</span>');
+      return false;
+    }else{
     $.each(array, function( ind, val ) {
        console.log(val.marque); 
        $("#liste").append('\
@@ -65,6 +70,7 @@ function recupVoiture(newDateDebut,newDateFin){
                ');
 
    });
+}
      
       affichePopupAjPanier();  
   });
@@ -77,6 +83,7 @@ $(document).ready(function () {
 /*#########################################*/
   $("#button-date").click(function() {
             $("#liste").empty();
+            $("#voitureIndisponible").empty();
             var debut = $("#from").val();
             var fin=$("#to").val();
 

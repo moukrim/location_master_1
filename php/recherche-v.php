@@ -220,7 +220,7 @@ require '_header.php';
              <div class="home">
                     <div class="row">
 
-                
+                	<div id="voitureIndisponible"></div>
                		<div id="liste">
                			
 

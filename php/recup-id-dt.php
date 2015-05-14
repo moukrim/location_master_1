@@ -11,10 +11,17 @@ $fin=addslashes($_POST['dtfin']) ;
 
   $sql = "SELECT * FROM vehicule WHERE id NOT IN (SELECT DISTINCT idVehicule FROM reservation WHERE ('$debut' <= finReserv AND '$debut' >= debutReserv) OR ('$fin' >= debutReserv AND '$fin' <= finReserv))";
  //exécution de la requête SQL
-  $requete = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
+  $requete = @mysql_query($sql) ;
+  $req = @mysql_query($sql) ;
+ $test=mysql_fetch_row($requete);
+  if(!$test){
+
+  	echo json_encode('indisponible');
+  }else{
+
    $tab=array(array());
    $i=0;
-  while($res=mysql_fetch_object($requete)){
+  while($res=mysql_fetch_object($req)){
 
 	$tab[$i]['id']= $res->id;
 	$tab[$i]['type']= $res->type;  
@@ -26,7 +33,7 @@ $fin=addslashes($_POST['dtfin']) ;
 
   }
 echo json_encode($tab);
-
+}
 
 }
 

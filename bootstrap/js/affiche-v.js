@@ -155,6 +155,7 @@ $(document).ready(function () {
   $("#submit-option").click(function() {
     //vider la liste de voiture à chaque nouvelle recherche
     $("#liste").empty();
+    $("#voitureIndisponible").empty();
     //recuperer le type de voiture séléctionné
     typeVoiture=$('#typeSelect option:selected').val();  
     var element1 = $("#4X4");

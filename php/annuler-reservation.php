@@ -16,7 +16,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "DELETE FROM reservation WHERE idReserv= $id AND idUtilisateur=$idU";
+$sql = "DELETE FROM reservation WHERE idReserv= $id AND idUtilisateur=$idU AND NOW()<debutReserv";
 $conn->query($sql);
 if ($conn->affected_rows !=0) {
     echo json_encode("oui") ;

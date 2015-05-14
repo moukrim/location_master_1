@@ -39,7 +39,7 @@ require '_header.php';
 			<li> <a href="log-sign.php"> <span class="glyphicon glyphicon-pencil"></span> LOGIN/SIGN-UP </a> </li>
             <li> <a href="recherche-v.php"> <span class="glyphicon glyphicon-search"></span> Recherche voiture </a> </li>
 			<li role="presentation"><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Votre comparateur <span class="badge"><?php echo ($_SESSION["comp"]); ?></span></a></li>  
-			<li> <a href="connexion.html"> <span class="glyphicon glyphicon-user"></span> Admin </a> </li>        
+      
           </ul>
 		  </nav>
 		  </div>
