@@ -2,6 +2,11 @@
 
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Recuperer les informations d'une reservation */
+/*#######################################################*/
+
 if(isset($_POST['id']) && isset($_POST['idU'])){
 	
 	$idv=intval($_POST['id']);//éviter l'injection sql

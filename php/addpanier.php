@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Ajouter vehicule(s) au comparateur */
+/*#######################################################*/
+
 require '_header.php';
 if(isset($_GET['id'])){
 	$id=$_GET['id'];

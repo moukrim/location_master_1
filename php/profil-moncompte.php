@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Recuperer les informations du profil utilisateur */
+/*#######################################################*/
+
 if(isset($_POST['id'])){
 	
 	$id=intval($_POST['id']);//éviter l'injection sql

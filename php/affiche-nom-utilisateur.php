@@ -1,5 +1,10 @@
 <?php
 //yassine
+
+/*#######################################################*/
+/* Afficher prenom d'utilisateur après sa connection  */
+/*#######################################################*/
+
  if (isset($_SESSION['prenom'])) {
 
 echo(' <div id="moncompte">

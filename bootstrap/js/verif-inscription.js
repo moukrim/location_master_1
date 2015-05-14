@@ -1,4 +1,5 @@
-//yassine
+/*MOUKRIM Yassine*/
+
 var email;
 var result;
 function isValidEmailAddress(emailAddress) {
@@ -25,6 +26,10 @@ function verifMail(champ){
           });
      return result;     
 }
+
+/*#######################################################*/
+/* Procédures d'inscription d'un utilisateur */
+/*#######################################################*/
 
 $(document).ready(function () {
 
@@ -102,10 +107,10 @@ $(document).ready(function () {
 
                         $("#enregistre").html('<span style="color:green; text-align:center;">L\'enregistrement terminé!! </span>').show();
                         $("#enregistre").delay(2000).hide("slow" );
-                         mdp=$("#mdp").val('');
-                         mdp_confirm=$("#mdp_confirmation").val('');
-                         nom=$("#nom").val('');
-                         prenom=$("#prenom").val('');
+                        mdp=$("#mdp").val('');
+                        mdp_confirm=$("#mdp_confirmation").val('');
+                        nom=$("#nom").val('');
+                        prenom=$("#prenom").val('');
                         email=$("#email").val('');
 
                         return false;

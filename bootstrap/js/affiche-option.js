@@ -1,4 +1,5 @@
-//yassine
+/*MOUKRIM Yassine*/
+
 $( document ).ready(function() {
    
 var marque={};

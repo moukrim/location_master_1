@@ -1,5 +1,10 @@
 <?php
 //yassine
+
+/*#######################################################*/
+/* page de gestion du compte utilisateur*/
+/*#######################################################*/
+
 require '_header.php';
 //var_dump($_POST);
 

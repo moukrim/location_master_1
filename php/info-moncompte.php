@@ -2,6 +2,11 @@
 
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Recuperer les infos des véhicules reservé par le client connecté */
+/*#######################################################*/
+
 if(isset($_POST['id'])){
 $idU=intval($_POST['id']);//éviter l'injection sql
  $cnx = @mysql_connect('localhost', 'root', '') ;

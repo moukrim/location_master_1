@@ -1,5 +1,10 @@
 <?php
 //yassine
+
+/*#######################################################*/
+/* Page d'affichage du comparateur et calcul d'itinéraire*/
+/*#######################################################*/
+
 require '_header.php';
 //var_dump($_SESSION);
 

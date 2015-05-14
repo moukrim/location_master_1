@@ -1,5 +1,10 @@
 <?php
 //yassine
+
+/*#######################################################*/
+/* Creation de comparateur */
+/*#######################################################*/
+
 class panier{
 
 public function __construct(){
@@ -27,7 +32,7 @@ public function __construct(){
 
 }
 
-
+//ajout de vehicule(s) au comparateur
 public function add($product_id){
 	if(isset($_SESSION['panier'][$product_id])){
 	 $_SESSION['panier'][$product_id]=1;
@@ -43,7 +48,7 @@ public function add($product_id){
 
 }
 
-
+//suppression de vehicule(s) du comparateur
 public function del($product_id){
 	if(isset($_SESSION['panier'][$product_id])){
 		unset($_SESSION['panier'][$product_id]);

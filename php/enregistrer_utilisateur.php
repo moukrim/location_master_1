@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Ajouter un nouveau utilisateur */
+/*#######################################################*/
+
 //Valeurs du serveur SQL
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['mdp'])) {
 	# code...

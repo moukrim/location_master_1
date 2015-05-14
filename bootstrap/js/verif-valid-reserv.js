@@ -1,4 +1,5 @@
-//yassine
+/*MOUKRIM Yassine*/
+
 var session;
 var id;
 var prixFinale;
@@ -64,17 +65,23 @@ $('#to').datepicker({
     }
 });
 
-$(document).ready(function () {    
+/*#######################################################*/
+/* Validation de reservation */
+/*#######################################################*/
 
+$(document).ready(function () {    
 
  
  $("input[name='optradio']").change(function(){
+
+  //on change la valeur de prix si ce radio button est checked
    if($('#optradiojour').is(':checked') && $("#from").val()!='' && $("#to").val()!=''){
        var nbdayjour=nbJoursEntreDate()+1;
         prixFinale=nbdayjour*($("#prixj").val());
         $("#prixfinale").empty().html('<span>'+prixFinale+'€</span>');
          console.log(prixFinale);
 
+    //on change la valeur de prix si ce radio button est checked
    }else if($('#optradiokm').is(':checked')  && $("#from").val()!='' && $("#to").val()!=''){
       
       var nbdaykm=nbJoursEntreDate()+1;
@@ -87,7 +94,7 @@ $(document).ready(function () {
 });
 
 
-  $("#cache-validation").hide();
+$("#cache-validation").hide();
 
 $("#btn-reservation").click(function(){
    session=$("#session").val();
@@ -100,6 +107,7 @@ $("#cache-validation").show('slow');
 
 });
 
+//confirmation de réservation après le clique sur le bouton valider
 $("#btn-reserv").click(function(){
 
 var from=$("#from").val();
@@ -108,9 +116,9 @@ id=$("#id").val();
 
 
   var dateArDebut = from.split('/');
-            var newDateDebut = dateArDebut[2] + '-' + dateArDebut[0] + '-' + dateArDebut[1];
-            var dateArFin = to.split('/');
-            var newDateFin = dateArFin[2] + '-' + dateArFin[0] + '-' + dateArFin[1];
+  var newDateDebut = dateArDebut[2] + '-' + dateArDebut[0] + '-' + dateArDebut[1];
+  var dateArFin = to.split('/');
+  var newDateFin = dateArFin[2] + '-' + dateArFin[0] + '-' + dateArFin[1];
 
 $("#erreur").empty();
   if(from==''){
@@ -123,30 +131,30 @@ $("#erreur").empty();
      return false;
   }
 $.ajax({
-                        url: "../php/verif-date-reserv.php",
-                        method: "POST",
-                        data: {dtdebut : newDateDebut , dtfin : newDateFin },
-                        })
-                        .done(function( msg ) {
-                            arr=$.parseJSON(msg);
-                           if($.inArray(id , arr) != -1){
-                             $("#erreur").html('<span style="color:red; margin-left:180px;">Cette voiture est indisponible dans cette date!!</span>').show(); 
-                             $('#erreur').delay(3000).hide("slow" );  
-                             return false;
+    url: "../php/verif-date-reserv.php",
+    method: "POST",
+    data: {dtdebut : newDateDebut , dtfin : newDateFin },
+    })
+    .done(function( msg ) {
+        arr=$.parseJSON(msg);
+       if($.inArray(id , arr) != -1){
+         $("#erreur").html('<span style="color:red; margin-left:180px;">Cette voiture est indisponible dans cette date!!</span>').show(); 
+         $('#erreur').delay(3000).hide("slow" );  
+         return false;
 
-                           }else{
-                              $.ajax({
-                        url: "../php/reserver.php",
-                        method: "POST",
-                        data: {dtdebut : newDateDebut , dtfin : newDateFin , idVehicule : id , idUtilisateur : session, prix : prixFinale },
-                        })
-                        .done(function( msg ) {
-                             $("#modal-reserv").modal('show').show();
-                             $('#modal-reserv').delay(2000).hide("slow" ); 
-                          
-                        });
-                           }
-                        });
+       }else{
+          $.ajax({
+    url: "../php/reserver.php",
+    method: "POST",
+    data: {dtdebut : newDateDebut , dtfin : newDateFin , idVehicule : id , idUtilisateur : session, prix : prixFinale },
+    })
+    .done(function( msg ) {
+         $("#modal-reserv").modal('show').show();
+         $('#modal-reserv').delay(2000).hide("slow" ); 
+      
+    });
+       }
+    });
 
 
 

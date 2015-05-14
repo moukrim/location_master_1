@@ -1,4 +1,5 @@
-//yassine
+/*MOUKRIM Yassine*/
+
 //afficher pop-up avant l'ajout au comparateur
 function affichePopupAjPanier(){
  

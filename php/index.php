@@ -1,5 +1,9 @@
 ﻿<?php 
 //yassine
+/*#######################################################*/
+/* Acces soit dans une page deconnecte ou une page connecte */
+/*#######################################################*/
+
 session_start();
 
 if($_SESSION['id']){

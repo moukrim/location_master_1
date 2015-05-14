@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Recuperer les voitures disponibles */
+/*#######################################################*/
+
 if(isset($_POST['dtdebut']) && isset($_POST['dtfin'])){
 
 $debut=addslashes($_POST['dtdebut']) ;

@@ -1,5 +1,10 @@
  <?php
  //yassine
+
+/*#######################################################*/
+/* Recuperer les voitures les plus louées */
+/*#######################################################*/
+
 $sql = "SELECT * FROM vehicule ORDER BY nbLoc DESC LIMIT 0,4";
 //exécution de la requête SQL
 $req = @mysql_query($sql, $cnx) or die($sql."<br>".mysql_error()) ;
