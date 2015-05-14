@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet la suppression d'un vehicule ou d'un client */
+/*#######################################################*/
 <!DOCTYPE HTML>
 <html>
   <head>
