@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet la modification d'un vehicule dans la base de données */
+/*#######################################################*/
 <?php
 
 $id = intval($_POST['id']);
