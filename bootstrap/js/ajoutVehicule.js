@@ -1,11 +1,13 @@
-
+//cédric teramo
+/*#######################################################*/
+/* Ajouter des véhicules */
+/*#######################################################*/
 
 $(document).ready(function() {
 
-
-
+//lorsque l'on clic sur le bouton d'ajout dun vehicule
 $("#boutonAjoutVehicule").click(function() {
-
+//recupération des champs suivant
 var type=$("#type");
 var marque=$("#marque");
 var modele=$("#modele");
@@ -15,8 +17,10 @@ var prix=$("#prix");
 var prixJour=$("#prixJour");
 var file=$("#file");
 var nbloc=$("#nbloc");
+//après recuperation de l'image on enlève le fakepath et on ne garde que le nom de l'image
 var pop=file.val().replace("C:\\fakepath\\", "");
 
+//vérification des champs
 if(type.val() == '')
 {
 	$("#type").focus();			
@@ -69,7 +73,7 @@ if(file.val() == '')
 		$("#imageInvalide").html('<span>Veuillez selectionner une photo du véhicule</span>');
 return false;
 }
-
+	//envoie des données vers la page AjoutVehicule.php
 	var request = $.ajax({
 
 		url: "traitementAjoutVehicule.php",
@@ -77,16 +81,16 @@ return false;
 		data: {type:type.val(), marque:marque.val(), modele:modele.val(), plaque:plaque.val(), kilometre:kilometre.val(), prix:prix.val(), prixJour:prixJour.val(), file:pop, nbloc:nbloc.val(), },
 
 	});
-
+//recuperation de la reponse
 request.done(function(msg){
 
 console.log(msg);
 
 
 if(msg = "ajout reussie")
-{
+{	//on affiche un pop up pour confimer l'ajout d'un vehicule
 	$("#modal-ajout-Vehicule").modal("show");
-
+	//reinitialsiation dse champs
 	$('#type').val('');
 	$('#marque').val('');
 	$('#modele').val('');
@@ -95,7 +99,7 @@ if(msg = "ajout reussie")
 	$('#prix').val('');
 	$('#prixJour').val('');
 	$('#file').val('');
-
+	//on vide les div après affichage d'une erreur de saisie
 	$('#typeInvalide').empty();
 	$('#marqueInvalide').empty();
 	$('#modeleInvalide').empty();
