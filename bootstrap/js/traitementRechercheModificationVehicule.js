@@ -1,18 +1,22 @@
+//cedric teramo
+/*#######################################################*/
+/* Recherche et modification d'un véhicule */
+/*#######################################################*/
 var plaque;
 $(document).ready(function() {
 
-
+//lorsque l'on clic sur le bouton recherche vehicule
 $("#boutonRechercherVehicule").click(function() {
-
+//on recupère la plaque d'immatriculation saisie
  plaque=$("#plaque");
-
+			//vérification du champs
 			if(plaque.val() == '')
 		{
 			$("#plaque").focus();
 			$("#plaqueInvalide").html('<span>Plaque immatriculation invalide</span>');
 			return false;
 		}
-		
+		//envoi de la donnée vers la page traitementRechercheModificationVehicule.php
 		var request = $.ajax({
 
 		url: "traitementRechercheModificationVehicule.php",
@@ -20,7 +24,7 @@ $("#boutonRechercherVehicule").click(function() {
 		data: {plaque:plaque.val() },
 
 	});
-
+//recupération de la réponse avec les informations du véhicule
 request.done(function(msg){
 	res=$.parseJSON(msg);
 
@@ -29,7 +33,7 @@ console.log(res);
 
 if(res.id != null)
 {
-
+ 				//on affiche les infos recupérer dans des input et on modifie si besoin
 				$("#afficheVehicule").empty().append('\
 								<div class="col-sm-12">\
 							<form class="form-horizontal" enctype="multipart/form-data">\
@@ -97,12 +101,12 @@ if(res.id != null)
 				');
 
 					
-
+					//lorsque l'on clic sur le bouton modifierVehicule
 					$("#boutonModifierVehicule").click(function (){
-
+					//on envoi toutes les données vers la page traitementModificationVehicule.php afin d'enregistrer les modifs
 					$.ajax({ 
 								type: "POST", // les variables seront passées en POST 
-								url: "traitementModificationVehicule.php", // on appelle le fichier php qui supprime l'element de la base de donnees 
+								url: "traitementModificationVehicule.php", 
 								data: { id:res.id , 
 										plaque:$("#plaque").val(), 
 										type:$("#type").val(),
@@ -111,12 +115,15 @@ if(res.id != null)
 										kilometrage:$("#kilometre").val(),
 										prix:$("#prix").val(),
 										prixJour:$("#prixJour").val(),
-										image:$("#file").val().replace("C:\\fakepath\\", "") },// variable que l'on passe au fichier php
+										image:$("#file").val().replace("C:\\fakepath\\", "") },
 				 
 							}).done(function(msg){
 								console.log(msg);
+								//affichage d'un pop up de confirmation
 								$("#modal-modif-Vehicule").modal("show");
+								//on vide la div
 								$("#afficheVehicule").empty();
+								//reinitialisation du champ
 								$('#plaque').val('');
 							});
 
