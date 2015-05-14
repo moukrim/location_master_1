@@ -1,9 +1,9 @@
+
+<?php
 //cedric teramo
 /*#######################################################*/
 /* Page qui permet la modification d'un vehicule dans la base de données */
 /*#######################################################*/
-<?php
-
 $id = intval($_POST['id']);
 $plaque = addslashes($_POST['plaque']);
 $type = addslashes($_POST['type']);
