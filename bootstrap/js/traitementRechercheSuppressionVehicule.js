@@ -1,19 +1,25 @@
+//cedric teramo
+/*#######################################################*/
+/* Recherche et suppression d'un vehicule */
+/*#######################################################*/
 var plaque;
 $(document).ready(function() {
 
-
+//lorsque l'on clic sur le bouton recherche vehicule
 $("#boutonRechercherVehicule").click(function() {
 $("#afficheVehicule").empty();
 $("#afficheVehi").empty();
+//on recupère la plaque d'immatriculation saisie
  plaque=$("#plaque");
 console.log(plaque.val());
+			//vérification du champs
 			if(plaque.val() == '')
 		{
 			$("#plaque").focus();
 			$("#plaqueInvalide").html('<span>Plaque immatriculation invalide</span>');
 			return false;
 		}
-		
+		//envoi de la donnée vers la page traitementRechercheSuppressionVehicule.php
 		var request = $.ajax({
 
 		url: "traitementRechercheSuppressionVehicule.php",
@@ -21,7 +27,7 @@ console.log(plaque.val());
 		data: {plaque:plaque.val() },
 
 	});
-
+//recupération de la réponse avec les informations du véhicule
 request.done(function(msg){
 	res=$.parseJSON(msg);
 
@@ -30,7 +36,7 @@ console.log(res.id);
 
 if(res.id != null)
 {
-
+				//affichage des infos vehicule
 				$("#afficheVehicule").empty().append('\
 								<div class="panel panel-warning" style="width:874px;"> \
 								  <div class="panel-heading"> \
@@ -61,18 +67,16 @@ if(res.id != null)
 				');
 
 					
-
+					//lorsque l'on clic sur le bouton SupprimerVehicule
 					$("#boutonSupprimerVehicule").click(function (){
-				//console.log(res.id);
-
-
+					//on envoi l'id du vehicule à supprimer à la page traitementSuppressionVehicule.php
 					$.ajax({ 
-								type: "POST", // les variables seront passées en POST 
-								url: "traitementSuppressionVehicule.php", // on appelle le fichier php qui supprime l'element de la base de donnees 
-								data: {id:res.id},// variable que l'on passe au fichier php
+								type: "POST", 
+								url: "traitementSuppressionVehicule.php", 
+								data: {id:res.id},
 				 
 							}).done(function(msg){
-								//console.log(msg);
+								//affichage d'un pop up de confirmation
 								$("#modal-sup-Vehicule").modal("show");
 								$("#afficheVehicule").empty();
 								$('#plaque').val('');
