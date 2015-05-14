@@ -1,4 +1,7 @@
-
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet d'ajouter un client dans la base de données */
+/*#######################################################*/
 <?php
 if($_POST["nom"] != "" && $_POST["prenom"] != "" && $_POST["adrMail"] != "" && $_POST["mdp"] != "")
 
