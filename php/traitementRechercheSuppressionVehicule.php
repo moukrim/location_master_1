@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet de recupérer les informations concernant un vehicule */
+/*#######################################################*/
 <?php
 
 if($_POST["plaque"] != "" )
