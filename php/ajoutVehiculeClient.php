@@ -1,7 +1,8 @@
-//cedric teramo
-/*#######################################################*/
-/* page qui permet l'ajout d'un vehicule ou d'un client */
-/*#######################################################*/
+<!--cedric teramo
+#######################################################
+ page qui permet l'ajout d'un vehicule ou d'un client 
+####################################################### 
+-->
 <!DOCTYPE HTML>
 <html>
   <head>
