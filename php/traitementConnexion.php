@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet la connexion à l'administrateur*/
+/*#######################################################*/
 <?php
 
 if($_POST["identifiant"] != "" && $_POST["mdp"] != "")
@@ -17,7 +21,6 @@ if($_POST["identifiant"] != "" && $_POST["mdp"] != "")
   //on récupère le résultat
   $result = mysql_fetch_object($requete) ;
   //si la requête s'est bien passée
-
   if(is_object($result))
   {
     //début de la session
