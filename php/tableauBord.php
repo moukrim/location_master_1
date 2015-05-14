@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet l'affichage du graphisme */
+/*#######################################################*/
 <!DOCTYPE HTML>
 <html>
   <head>
