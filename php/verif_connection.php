@@ -27,18 +27,12 @@ if($_POST["mail"] != "" && $_POST["pass"] != "")
  
     echo ("connectionOk");
   }//fin if
-  //sinon on retourne à la page d'inscription
+
   else
   { 
 	
     echo ("connectionKo");
   }//fin else
 }//fin if
-/*
-  sinon on retourne à la page d'inscription
-*/
-/*else
-{
-  header("Location: enregistrer.php") ;
-}//fin else*/
+
 ?>
