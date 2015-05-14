@@ -2,7 +2,7 @@
 <?php
 //cedric teramo
 /*#######################################################*/
-/* Page qui permet la connexion à l'administrateur*/
+/* Page qui permet à l'administrateur de se connecter*/
 /*#######################################################*/
 if($_POST["identifiant"] != "" && $_POST["mdp"] != "")
 {
