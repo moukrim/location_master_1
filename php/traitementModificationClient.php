@@ -1,9 +1,9 @@
+
+<?php
 //cedric teramo
 /*#######################################################*/
 /* Page qui permet de modifier le compte d'un client */
 /*#######################################################*/
-<?php
-
 $id = intval($_POST['id']);
 $nom = addslashes($_POST['nom']);
 $prenom = addslashes($_POST['prenom']);
