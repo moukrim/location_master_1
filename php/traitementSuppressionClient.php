@@ -1,9 +1,9 @@
+
+<?php
 //cedric teramo
 /*#######################################################*/
 /* Page qui permet la suppression d'un client */
 /*#######################################################*/
-<?php
-
 $id = intval($_POST['id']);
   $cnx = @mysql_connect('localhost', 'root', '') ;
   //sélection de la base de données
