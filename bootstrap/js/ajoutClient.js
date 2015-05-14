@@ -1,7 +1,7 @@
-
+//cedric teramo
 $(document).ready(function() {
 
-
+//ajout d'un client après le click le bouton ajoutClient
 $("#boutonAjoutClient").click(function() {
 
 var nom=$("#nom");
