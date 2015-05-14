@@ -1,11 +1,16 @@
+//cedric teramo
+/*#######################################################*/
+/* Recherche et modification d'un client */
+/*#######################################################*/
+
 var adrMail;
 $(document).ready(function() {
 
-
+//lorsque l'on clic sur le bouton recherche client
 $("#boutonRechercherClient").click(function() {
-
+//on recupère l'adresse mail saisie
  adrMail=$("#adrMail");
-
+			//vérification du champs
 			if(adrMail.val() == '')
 		{
 			$("#adrMail").focus();
@@ -13,6 +18,7 @@ $("#boutonRechercherClient").click(function() {
 			return false;
 		}
 		
+		//envoi de la donnée vers la page traitementRechercheModificationClient.php
 		var request = $.ajax({
 
 		url: "traitementRechercheModificationClient.php",
@@ -20,7 +26,7 @@ $("#boutonRechercherClient").click(function() {
 		data: {adrMail:adrMail.val() },
 
 	});
-
+//recupération de la réponse avec l'id, le nom, le prenom, l'adresse mail et le mot de passe du client
 request.done(function(msg){
 	res=$.parseJSON(msg);
 
@@ -28,7 +34,7 @@ request.done(function(msg){
 
 if(res.id != null)
 {
-
+				//on affiche les infos recupérer dans des input et on modifie si besoin
 				$("#afficheClient").empty().append('\
 								<div class="col-sm-12">\
 							<form class="form-horizontal" enctype="multipart/form-data">\
@@ -65,9 +71,9 @@ if(res.id != null)
 										</div>\
 				');
 					
-
+					//lorsque l'on clic sur le bouton modifierClient
 					$("#boutonModifierClient").click(function (){
-
+					//on envoi toutes les données vers la page traitementModificationClient.php afin d'enregistrer les modifs
 					$.ajax({ 
 								type: "POST", 
 								url: "traitementModificationClient.php", 
@@ -78,9 +84,11 @@ if(res.id != null)
 					 					mdp:$("#mdp").val(), 
 					 				},				 
 							}).done(function(msg){
-
+								//affichage d'un pop up de confirmation
 								$("#modal-modif-Client").modal("show");
+								//on vide la div
 								$("#afficheClient").empty();
+								//reinitialisation du champ
 								$('#AdrMail').val('');
 							});
 
