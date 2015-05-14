@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* Page qui permet de modifier le compte d'un client */
+/*#######################################################*/
 <?php
 
 $id = intval($_POST['id']);
