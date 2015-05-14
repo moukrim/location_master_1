@@ -1,19 +1,26 @@
+//cedric teramo
+/*#######################################################*/
+/* Recherche et suppression d'un client */
+/*#######################################################*/
 var adrMail;
 $(document).ready(function() {
 
 
+//lorsque l'on clic sur le bouton recherche client
 $("#boutonRechercherClient").click(function() {
 $("#afficheCli").empty();
 $("#afficheClient").empty();
- adrMail=$("#adrMail");
 
+//on recupère l'adresse mail
+ adrMail=$("#adrMail");
+			//on verifie le champ
 			if(adrMail.val() == '')
 		{
 			$("#adrMail").focus();
 			$("#adrMailInvalide").html('<span>Adresse Mail invalide</span>');
 			return false;
 		}
-		
+		//on envoi la données à la page traitementRechercheSuppressionClient.php
 		var request = $.ajax({
 
 		url: "traitementRechercheSuppressionClient.php",
@@ -21,13 +28,13 @@ $("#afficheClient").empty();
 		data: {adrMail:adrMail.val() },
 
 	});
-
+//on recupère les infos client
 request.done(function(msg){
 	res=$.parseJSON(msg);
 
 if(res.id != null)
 {
-
+				//on affiche les infos recupérer 
 				$("#afficheClient").empty().append('\
 								<div class="panel panel-warning" style="width:874px;"> \
 								  <div class="panel-heading"> \
@@ -56,16 +63,16 @@ if(res.id != null)
 								    </div>\
 								    </div>\
 				');
-
+					//lorsque l'on clic sur le bouton supprimer client
 					$("#boutonSupprimerClient").click(function (){
-
+					//on envoi l'id sur la page traitementSuppressionClient.php
 					$.ajax({ 
 								type: "POST",  
 								url: "traitementSuppressionClient.php", 
 								data: {id:res.id},
 				 
 							}).done(function(msg){
-								//console.log(msg);
+								//affichage d'un pop up de confirmation
 								$("#modal-sup-Client").modal("show");
 								$("#afficheClient").empty();
 								$('#adrMail').val('');
