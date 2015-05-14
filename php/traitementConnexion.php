@@ -1,9 +1,9 @@
+
+<?php
 //cedric teramo
 /*#######################################################*/
 /* Page qui permet la connexion à l'administrateur*/
 /*#######################################################*/
-<?php
-
 if($_POST["identifiant"] != "" && $_POST["mdp"] != "")
 {
  $login     = addslashes($_POST["identifiant"] );
