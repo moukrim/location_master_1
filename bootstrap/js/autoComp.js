@@ -1,3 +1,7 @@
+//cedric teramo
+/*#######################################################*/
+/* permet de recupere les noms des marques, utilisation de l'auto complétion */
+/*#######################################################*/
 $(document).ready(function($){
 			$.get( "traitementMarque.php", function( data ) {
 			availableTags = $.parseJSON(data);
@@ -5,5 +9,5 @@ $(document).ready(function($){
 source: availableTags
 });
 });
-			//alert( "Load was performed.");
+			
 });
