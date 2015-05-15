@@ -1,6 +1,10 @@
 <?php
+//cedric teramo
+/*#######################################################*/
+/* permet de recuperer les noms des marques 
+/*#######################################################*/
 
-  $cnx = @mysql_connect('localhost', 'root', 'root') ;
+  $cnx = @mysql_connect('localhost', 'root', '') ;
   //sélection de la base de données
   $db_selected = mysql_select_db('location');
 	
