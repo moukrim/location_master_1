@@ -1,5 +1,10 @@
 <?php
 //yassine
+
+/*#######################################################*/
+/* Vérification de l'existance de l'adr Mail */
+/*#######################################################*/
+
 if($_POST["mail"] != "")
 {
   $mail = addslashes($_POST["mail"]) ;

@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Vérification la date de reservation */
+/*#######################################################*/
+
 if(isset($_POST['dtdebut']) && isset($_POST['dtfin'])){
 
 $debut=addslashes($_POST['dtdebut']); 

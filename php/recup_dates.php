@@ -1,6 +1,8 @@
 <?php 
 //yassine
-
+/*#######################################################*/
+/* Recuperer la date de début et fin de reservation pour un vehicule */
+/*#######################################################*/
 
 if(isset($_POST['id'])  ){
 

@@ -1,5 +1,10 @@
 <?php
  //yassine
+
+/*#######################################################*/
+/* Recuperer les types de véhicules et les marque de chaque type */
+/*#######################################################*/
+
  //création de la requête SQL
  $sql = "SELECT type FROM vehicule GROUP BY type	";
  //exécution de la requête SQL

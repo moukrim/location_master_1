@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Recuperer les voitures qui ont un type et une marque donnés */
+/*#######################################################*/
+
 if(isset($_POST['type']) && isset($_POST['marque']) ){
 
 $type=addslashes($_POST['type']) ;

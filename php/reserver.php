@@ -1,5 +1,10 @@
 <?php 
 //yassine
+
+/*#######################################################*/
+/* Insérer les données de reservation dans la BDD */
+/*#######################################################*/
+
 //Valeurs du serveur SQL
 $host = '127.0.0.1'; 
 $user = 'root'; 
