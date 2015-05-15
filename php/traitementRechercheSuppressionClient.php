@@ -7,7 +7,7 @@
 if($_POST["adrMail"] != "" )
 {
 
- $adrMail = addslashes($_POST["adrMail"]);
+ $adrMail =htmlentities(addslashes($_POST["adrMail"]), ENT_QUOTES) ;
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;
   //sélection de la base de données

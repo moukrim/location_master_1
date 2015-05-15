@@ -1,10 +1,9 @@
-
-
 <!--cedric teramo
 #######################################################
  Page qui permet l'affichage du graphisme
 ####################################################### 
 -->
+
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -38,7 +37,9 @@
     </header>
 </div>
 <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+  <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1">
  <strong>Les véhicules les plus rentables: </strong>
+</div>
 </div>
 <br>
 <br>

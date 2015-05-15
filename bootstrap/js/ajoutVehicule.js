@@ -5,6 +5,7 @@
 
 $(document).ready(function() {
 
+
 //lorsque l'on clic sur le bouton d'ajout dun vehicule
 $("#boutonAjoutVehicule").click(function() {
 //recupération des champs suivant
@@ -12,7 +13,7 @@ var type=$("#type");
 var marque=$("#marque");
 var modele=$("#modele");
 var plaque=$("#plaque");
-var kilometre=$("#kilometre");
+var kilometre= $("#kilometre");
 var prix=$("#prix");
 var prixJour=$("#prixJour");
 var file=$("#file");
@@ -47,10 +48,25 @@ if(plaque.val() == '')
 	$("#plaqueInvalide").html('<span>Champs Immatriculation vide</span>');
 return false;
 }
+
 if(kilometre.val() == '')
 {
 	$("#kilometre").focus();
 	$("#kilometreInvalide").html('<span>Champs Kilometre vide</span>');
+return false;
+}
+
+if(kilometre.val() < '0')
+{
+	$("#kilometre").focus();
+	$("#kilometreInvalide").html('<span>le kilometrage du véhicule doit être positif !</span>');
+return false;
+}
+
+if(isNaN(kilometre.val()) == true)
+{
+	$("#kilometre").focus();
+	$("#kilometreInvalide").html('<span>le kilometrage est un nombre !</span>');
 return false;
 }
 
@@ -61,10 +77,38 @@ if(prix.val() == '')
 return false;
 }
 
+if(prix.val() <0)
+{
+	$("#prix").focus();
+	$("#prixInvalide").html('<span>le prix doit être positif !</span>');
+return false;
+}
+
+if(isNaN(prix.val()) == true)
+{
+	$("#prix").focus();
+	$("#prixInvalide").html('<span>Le prix doit un nombre !</span>');
+return false;
+}
+
 if(prixJour.val() == '')
 {
 	$("#prixJour").focus();
 	$("#prixJourInvalide").html('<span>Champs Prix / jour vide</span>');
+return false;
+}
+
+if(prixJour.val() <0)
+{
+	$("#prixJour").focus();
+	$("#prixJourInvalide").html('<span>le prix doit être positif !</span>');
+return false;
+}
+
+if(isNaN(prixJour.val()) == true)
+{
+	$("#prixJour").focus();
+	$("#prixJourInvalide").html('<span>le prix par jour est un nombre !</span>');
 return false;
 }
 

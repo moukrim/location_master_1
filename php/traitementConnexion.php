@@ -6,8 +6,8 @@
 /*#######################################################*/
 if($_POST["identifiant"] != "" && $_POST["mdp"] != "")
 {
- $login     = addslashes($_POST["identifiant"] );
- $pass      = addslashes($_POST["mdp"] );
+ $login     = htmlentities(addslashes($_POST["identifiant"]), ENT_QUOTES) ;
+ $pass      = htmlentities(addslashes($_POST["mdp"]), ENT_QUOTES) ;
  
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;

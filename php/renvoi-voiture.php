@@ -7,8 +7,8 @@
 
 if(isset($_POST['type']) && isset($_POST['marque']) ){
 
-$type=addslashes($_POST['type']) ;
-$marque=addslashes($_POST['marque']);
+$type=htmlentities(addslashes($_POST['type']), ENT_QUOTES);
+$marque=htmlentities(addslashes($_POST['marque']), ENT_QUOTES);
  $cnx = @mysql_connect('localhost', 'root', '') ;
  //sélection de la base de données
  $db  = mysql_select_db('location') ;

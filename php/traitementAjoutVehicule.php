@@ -7,14 +7,14 @@
 if($_POST["type"] != "" && $_POST["marque"] != "" && $_POST["modele"] != "" && $_POST["plaque"] != "" && $_POST["kilometre"] != "" && $_POST["prix"] != "" && $_POST["prixJour"] != "" && $_POST["file"] != "")
 
 {
- $type      = addslashes($_POST["type"]) ;
- $marque    = addslashes($_POST["marque"]) ;
- $modele    = addslashes($_POST["modele"]) ;
- $plaque    = addslashes($_POST["plaque"]) ;
+ $type      = htmlentities(addslashes($_POST["type"]), ENT_QUOTES);
+ $marque    = htmlentities(addslashes($_POST["marque"]), ENT_QUOTES);
+ $modele    = htmlentities(addslashes($_POST["modele"]), ENT_QUOTES);
+ $plaque    = htmlentities(addslashes($_POST["plaque"]), ENT_QUOTES);
  $kilometre = intval($_POST["kilometre"] );
  $prix      = floatval($_POST["prix"]) ;
  $prixJour  = intval($_POST["prixJour"]);
- $file      = addslashes($_POST["file"]) ;
+ $file      = htmlentities() addslashes($_POST["file"], ENT_QUOTES);
  $nbloc     = intval($_POST["nbloc"]);
 $pathImage = '../image-voiture/'.$file;
   //connexion au serveur

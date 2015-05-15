@@ -11,7 +11,15 @@
 	  <link href="../bootstrap/css/styles.css" rel="stylesheet">
 	  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	  <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-  </head>
+  
+
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="../bootstrap/js/autoComp.js"></script>
+
+
+</head>
 
   <body background="../image/bg.jpg">
    <header class="row col-sm-12" >

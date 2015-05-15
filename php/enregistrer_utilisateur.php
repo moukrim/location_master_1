@@ -14,10 +14,10 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && 
 	$pass = ''; 
 
 	// On récupère les valeurs du formulaire
-	$nom = addslashes($_POST ['nom']); 
-	$prenom = addslashes($_POST['prenom']);  
-	$mail = addslashes($_POST['mail']); 
-	$mdp = addslashes($_POST['mdp']); 
+	$nom =htmlentities(addslashes($_POST ['nom']), ENT_QUOTES); 
+	$prenom =htmlentities(addslashes($_POST['prenom']), ENT_QUOTES);  
+	$mail =htmlentities(addslashes($_POST['mail']), ENT_QUOTES); 
+	$mdp =htmlentities(addslashes($_POST['mdp']), ENT_QUOTES); 
 
 
 	$link=@mysql_connect ($host,$user,$pass);

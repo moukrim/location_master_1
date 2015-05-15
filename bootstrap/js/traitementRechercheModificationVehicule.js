@@ -2,6 +2,8 @@
 /*#######################################################*/
 /* Recherche et modification d'un véhicule */
 /*#######################################################*/
+
+
 var plaque;
 $(document).ready(function() {
 
@@ -9,7 +11,7 @@ $(document).ready(function() {
 $("#boutonRechercherVehicule").click(function() {
 //on recupère la plaque d'immatriculation saisie
  plaque=$("#plaque");
-			//vérification du champs
+ 			//vérification du champs
 			if(plaque.val() == '')
 		{
 			$("#plaque").focus();
@@ -90,7 +92,7 @@ if(res.id != null)
 							  <div class="form-group">\
 							  	<label for="Image" class="col-sm-12">Image du vehicule</label>\
 							    	<div class="col-sm-12">\
-							      		<input type="file" name="file" id="file" style="margin-top: +10px;"/>\
+							      		<input value="'+res.image+'" type="file"  name="file" id="file" style="margin-top: +10px;"/>\
 							    	</div>\
 							   </div>\
 							   <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">\
@@ -103,10 +105,117 @@ if(res.id != null)
 					
 					//lorsque l'on clic sur le bouton modifierVehicule
 					$("#boutonModifierVehicule").click(function (){
-					//on envoi toutes les données vers la page traitementModificationVehicule.php afin d'enregistrer les modifs
-					$.ajax({ 
+							//on envoi toutes les données vers la page traitementModificationVehicule.php afin d'enregistrer les modifs							
+							var type=$("#type");
+							var marque=$("#marque");
+							var modele=$("#modele");
+							var plaque=$("#plaque");
+							var kilometre= $("#kilometre");
+							var prix=$("#prix");
+							var prixJour=$("#prixJour");
+							var file=$("#file");
+							var nbloc=$("#nbloc");
+							var pop=file.val().replace("C:\\fakepath\\", "");
+
+							if(type.val() == '')
+							{
+								$("#type").focus();			
+								$("#typeInvalide").html('<span>Champs Type vide</span>');
+							return false;
+							}
+
+							if(marque.val() == '')
+							{
+								$("#marque").focus();
+								$("#marqueInvalide").html('<span>Champs Marque vide</span>');
+							return false;
+							}
+							if(modele.val() == '')
+							{
+								$("#modele").focus();
+								$("#modeleInvalide").html('<span>Champs Modele vide</span>');
+							return false;
+							}
+
+							if(plaque.val() == '')
+							{
+								$("#plaque").focus();
+								$("#plaqueInvalide").html('<span>Champs Immatriculation vide</span>');
+							return false;
+							}
+
+							if(kilometre.val() == '')
+							{
+								$("#kilometre").focus();
+								$("#kilometreInvalide").html('<span>Champs Kilometre vide</span>');
+							return false;
+							}
+
+							if(kilometre.val() < '0')
+							{
+								$("#kilometre").focus();
+								$("#kilometreInvalide").html('<span>le kilometrage du véhicule doit être positif !</span>');
+							return false;
+							}
+
+							if(isNaN(kilometre.val()) == true)
+							{
+								$("#kilometre").focus();
+								$("#kilometreInvalide").html('<span>le kilometrage est un nombre !</span>');
+							return false;
+							}
+
+							if(prix.val() == '')
+							{
+								$("#prix").focus();
+								$("#prixInvalide").html('<span>Champs Prix vide</span>');
+							return false;
+							}
+
+							if(prix.val() <0)
+							{
+								$("#prix").focus();
+								$("#prixInvalide").html('<span>le prix doit être positif !</span>');
+							return false;
+							}
+
+							if(isNaN(prix.val()) == true)
+							{
+								$("#prix").focus();
+								$("#prixInvalide").html('<span>Le prix doit un nombre !</span>');
+							return false;
+							}
+
+							if(prixJour.val() == '')
+							{
+								$("#prixJour").focus();
+								$("#prixJourInvalide").html('<span>Champs Prix / jour vide</span>');
+							return false;
+							}
+
+							if(prixJour.val() <0)
+							{
+								$("#prixJour").focus();
+								$("#prixJourInvalide").html('<span>le prix doit être positif !</span>');
+							return false;
+							}
+
+							if(isNaN(prixJour.val()) == true)
+							{
+								$("#prixJour").focus();
+								$("#prixJourInvalide").html('<span>le prix par jour est un nombre !</span>');
+							return false;
+							}
+
+							if(file.val() == '')
+							{
+									$("#imageInvalide").html('<span>Veuillez selectionner une photo du véhicule</span>');
+							return false;
+							}
+												
+								$.ajax({ 
 								type: "POST", // les variables seront passées en POST 
-								url: "traitementModificationVehicule.php", 
+								url: "traitementModificationVehicule.php",  
 								data: { id:res.id , 
 										plaque:$("#plaque").val(), 
 										type:$("#type").val(),
@@ -114,8 +223,8 @@ if(res.id != null)
 										modele:$("#modele").val(),
 										kilometrage:$("#kilometre").val(),
 										prix:$("#prix").val(),
-										prixJour:$("#prixJour").val(),
-										image:$("#file").val().replace("C:\\fakepath\\", "") },
+										prixJour:$("#prixJour").val,
+										image:$("#file").val().replace("C:\\fakepath\\", "") },// variable que l'on passe au fichier php
 				 
 							}).done(function(msg){
 								console.log(msg);

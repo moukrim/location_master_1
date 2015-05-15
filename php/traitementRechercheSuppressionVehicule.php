@@ -7,7 +7,7 @@
 if($_POST["plaque"] != "" )
 {
 
- $plaque = addslashes($_POST["plaque"]);
+ $plaque =htmlentities(addslashes($_POST["plaque"]), ENT_QUOTES) ;
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;
   //sélection de la base de données

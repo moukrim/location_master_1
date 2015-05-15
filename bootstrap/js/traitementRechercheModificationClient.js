@@ -10,7 +10,7 @@ $(document).ready(function() {
 $("#boutonRechercherClient").click(function() {
 //on recupère l'adresse mail saisie
  adrMail=$("#adrMail");
-			//vérification du champs
+ 			//vérification du champs
 			if(adrMail.val() == '')
 		{
 			$("#adrMail").focus();
@@ -34,7 +34,7 @@ request.done(function(msg){
 
 if(res.id != null)
 {
-				//on affiche les infos recupérer dans des input et on modifie si besoin
+								//on affiche les infos recupérer dans des input et on modifie si besoin
 				$("#afficheClient").empty().append('\
 								<div class="col-sm-12">\
 							<form class="form-horizontal" enctype="multipart/form-data">\
@@ -73,6 +73,39 @@ if(res.id != null)
 					
 					//lorsque l'on clic sur le bouton modifierClient
 					$("#boutonModifierClient").click(function (){
+
+
+						var nom=$("#nom");
+						var prenom=$("#prenom");
+						var adrMail=$("#adrMail");
+						var mdp=$("#mdp");
+
+						if(nom.val() == '')
+						{
+							$("#nom").focus();			
+							$("#nomInvalide").html('<span>Champs Nom vide</span>');
+						return false;
+						}
+
+						if(prenom.val() == '')
+						{
+							$("#prenom").focus();
+							$("#prenomInvalide").html('<span>Champs Prenom vide</span>');
+						return false;
+						}
+						if(adrMail.val() == '')
+						{
+							$("#adrMail").focus();
+							$("#adrMailInvalide").html('<span>Champs Mail vide</span>');
+						return false;
+						}
+						if(mdp.val() == '')
+						{
+							$("#mdp").focus();			
+							$("#mdpInvalide").html('<span>Champs Mot de passe vide</span>');
+						return false;
+						}
+
 					//on envoi toutes les données vers la page traitementModificationClient.php afin d'enregistrer les modifs
 					$.ajax({ 
 								type: "POST", 

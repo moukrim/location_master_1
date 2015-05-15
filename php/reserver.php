@@ -11,11 +11,11 @@ $user = 'root';
 $pass = ''; 
 
 
-$dtdebut =addslashes($_POST ['dtdebut']);
-$dtfin =addslashes($_POST ['dtfin']); 
+$dtdebut =htmlentities(addslashes($_POST ['dtdebut']), ENT_QUOTES);
+$dtfin =htmlentities(addslashes($_POST ['dtfin']),ENT_QUOTES); 
 $idVehicule =intval($_POST['idVehicule']); 
 $idUtilisateur =intval($_POST['idUtilisateur']); 
-$prixFinale =addslashes($_POST['prix']) ; 
+$prixFinale =htmlentities(addslashes($_POST['prix']), ENT_QUOTES); 
 
 $link=@mysql_connect ($host,$user,$pass);
 if (!$link) {

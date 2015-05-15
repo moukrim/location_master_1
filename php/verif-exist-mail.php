@@ -7,7 +7,7 @@
 
 if($_POST["mail"] != "")
 {
-  $mail = addslashes($_POST["mail"]) ;
+  $mail =htmlentities(addslashes($_POST["mail"]), ENT_QUOTES);
  
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;

@@ -7,8 +7,8 @@
 
 if($_POST["mail"] != "" && $_POST["pass"] != "")
 {
-  $mail = addslashes($_POST["mail"]);
-  $pass = addslashes($_POST["pass"]);
+  $mail = htmlentities(addslashes($_POST["mail"]), ENT_QUOTES);
+  $pass = htmlentities(addslashes($_POST["pass"]), ENT_QUOTES);
  
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;

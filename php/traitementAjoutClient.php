@@ -7,10 +7,10 @@
 if($_POST["nom"] != "" && $_POST["prenom"] != "" && $_POST["adrMail"] != "" && $_POST["mdp"] != "")
 
 {
- $nom     = addslashes($_POST["nom"]) ;
- $prenom  = addslashes($_POST["prenom"]) ;
- $adrMail = addslashes($_POST["adrMail"]) ;
- $mdp     = addslashes($_POST["mdp"]) ;
+ $nom     = htmlentities(addslashes($_POST["nom"]), ENT_QUOTES);
+ $prenom  = htmlentities(addslashes($_POST["prenom"]), ENT_QUOTES);
+ $adrMail = htmlentities(addslashes($_POST["adrMail"]), ENT_QUOTES);
+ $mdp     = htmlentities(addslashes($_POST["mdp"]), ENT_QUOTES);
 
   //connexion au serveur
   $cnx = @mysql_connect('localhost', 'root', '') ;

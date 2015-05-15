@@ -7,8 +7,8 @@
 
 if(isset($_POST['dtdebut']) && isset($_POST['dtfin'])){
 
-$debut=addslashes($_POST['dtdebut']); 
-$fin=addslashes($_POST['dtfin']);
+$debut= htmlentities(addslashes($_POST['dtdebut']), ENT_QUOTES) ; 
+$fin=htmlentities(addslashes($_POST['dtfin']), ENT_QUOTES) ;
 
  $cnx = @mysql_connect('localhost', 'root', '') ;
  //sélection de la base de données
